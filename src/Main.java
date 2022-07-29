@@ -22,8 +22,8 @@ public class Main {
         s2.setCF("VNCSDIDJ23NJSDS");
 
         GestioneSegreteria gs = new GestioneSegreteria();
-      // gs.registerUser(s);
-      // gs.registerUser(s2);
+       //gs.registerUser(s);
+       //gs.registerUser(s2);
        gs.loginUser(s);
     }
 }

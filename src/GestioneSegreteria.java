@@ -38,25 +38,29 @@ public class GestioneSegreteria {
     //function that login student in json
     public void loginUser(Studente s) throws IOException, ParseException {
 
-        JSONParser parser = new JSONParser();
+        //get user e password for check it with json
+        String username = s.getUsername();
+        String password = s.getPassword();
 
+        //read json file
+        JSONParser parser = new JSONParser();
         try (Reader reader = new FileReader("Studenti.json")) {
 
             JSONObject jsonObject = (JSONObject) parser.parse(reader);
-            System.out.println(jsonObject);
 
-            String name = (String) jsonObject.get("Nome");
-            System.out.println(name);
-
-            String age = (String) jsonObject.get("Cognome");
-            System.out.println(age);
+            String username_json = (String) jsonObject.get("Studenti");
+            String password_json = (String) jsonObject.get("Password");
 
             // loop array
-            /*JSONArray msg = (JSONArray) jsonObject.get("messages");
+            JSONArray msg = (JSONArray) jsonObject.get("Studenti");
             Iterator<String> iterator = msg.iterator();
             while (iterator.hasNext()) {
                 System.out.println(iterator.next());
-            }*/
+            }
+
+            System.out.println(username_json);
+            System.out.println(password_json);
+
 
         } catch (IOException e) {
             e.printStackTrace();
