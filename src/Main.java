@@ -1,3 +1,5 @@
+//FRONTEND
+
 //import java swing and awt needed for UI
 import javax.swing.*;
 import java.awt.*;
