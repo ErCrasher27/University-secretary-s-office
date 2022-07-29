@@ -1,8 +1,8 @@
 //import java swing and awt needed for UI
 import javax.swing.*;
 import java.awt.*;
-
 public class Main {
+    /*Main to allow user data entry*/
     public static void main(String[] args) {
 
         //create frame obj and set poperties
