@@ -1,6 +1,6 @@
-{
-  "Studenti": [
-    {
+[
+  {
+    "Studente": {
       "Email": "francescograuso@live.it",
       "CF": "GRSFNC02M27M28B",
       "Username": "ErCrasher",
@@ -8,8 +8,22 @@
       "Nome": "Francesco",
       "Cognome": "Grauso",
       "Password": "soloio"
-    },
-    {
+    }
+  }
+][
+  {
+    "Studente": {
+      "Email": "francescograuso@live.it",
+      "CF": "GRSFNC02M27M28B",
+      "Username": "ErCrasher",
+      "Id": "1",
+      "Nome": "Francesco",
+      "Cognome": "Grauso",
+      "Password": "soloio"
+    }
+  },
+  {
+    "Studente": {
       "Email": "vincenzoangelini@live.it",
       "CF": "VNCSDIDJ23NJSDS",
       "Username": "schifName",
@@ -18,5 +32,5 @@
       "Cognome": "Angelini",
       "Password": "solotu"
     }
-  ]
-}
+  }
+]

@@ -12,21 +12,30 @@ import org.json.simple.parser.ParseException;
 
 public class GestioneSegreteria {
     Studente s;
-
+    JSONArray studentList  = new JSONArray();
     //function that register student in json
     public int registerUser(Studente s) {
-        JSONObject js = new JSONObject();
-        js.put("Id", "1");
-        js.put("Nome", s.getName());
-        js.put("Cognome", s.getSurname());
-        js.put("Username", s.getUsername());
-        js.put("Password", s.getPassword());
-        js.put("Email", s.getEmail());
-        js.put("CF", s.getCF());
+
+        //set student stats
+        JSONObject student_stats = new JSONObject();
+        student_stats.put("Id", "1");
+        student_stats.put("Nome", s.getName());
+        student_stats.put("Cognome", s.getSurname());
+        student_stats.put("Username", s.getUsername());
+        student_stats.put("Password", s.getPassword());
+        student_stats.put("Email", s.getEmail());
+        student_stats.put("CF", s.getCF());
+
+        //add in student
+        JSONObject student = new JSONObject();
+        student.put("Studente", student_stats);
+
+        //Add employees to list
+        this.studentList.add(student);
 
         //write on JSON file
         try (FileWriter file = new FileWriter("Studenti.json", true)) {
-            file.write(js.toJSONString());
+            file.write(studentList.toJSONString());
             file.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -39,35 +48,43 @@ public class GestioneSegreteria {
     public void loginUser(Studente s) throws IOException, ParseException {
 
         //get user e password for check it with json
-        String username = s.getUsername();
-        String password = s.getPassword();
+        // String username = s.getUsername();
+        // String password = s.getPassword();
 
-        //read json file
-        JSONParser parser = new JSONParser();
-        try (Reader reader = new FileReader("Studenti.json")) {
+        //JSON parser object to parse read file
+        JSONParser jsonParser = new JSONParser();
 
-            JSONObject jsonObject = (JSONObject) parser.parse(reader);
+        try (FileReader reader = new FileReader("Studenti.json")) {
+            //Read JSON file
+            Object obj = jsonParser.parse(reader);
 
-            String username_json = (String) jsonObject.get("Studenti");
-            String password_json = (String) jsonObject.get("Password");
+            JSONArray employeeList = (JSONArray) obj;
+            System.out.println(employeeList);
 
-            // loop array
-            JSONArray msg = (JSONArray) jsonObject.get("Studenti");
-            Iterator<String> iterator = msg.iterator();
-            while (iterator.hasNext()) {
-                System.out.println(iterator.next());
-            }
+            //Iterate over employee array
+            employeeList.forEach(emp -> parseEmployeeObject((JSONObject) emp));
 
-            System.out.println(username_json);
-            System.out.println(password_json);
-
-
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
             e.printStackTrace();
-
-
         }
+
+    }
+
+    private void parseEmployeeObject(JSONObject emp) {
+        //Get employee object within list
+        JSONObject employeeObject = (JSONObject) emp.get("Studente");
+
+        //Get employee first name
+        String firstName = (String) employeeObject.get("Nome");
+        System.out.println(firstName);
+
+        //Get employee last name
+        String lastName = (String) employeeObject.get("Cognome");
+        System.out.println(lastName);
+
     }
 }
