@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 //import org.json.*;
 /*Creation of the class Students*/
 public class Studente {
-    private String name, surname, username, email, cf = null;
+    private String name, surname, username, password, email, cf = null;
 
     /*Creation of the procedure for the acquisition of the student’s name*/
     public void setName(String name){
@@ -38,6 +38,16 @@ public class Studente {
     public String getUsername(){
         return this.username;
     }
+
+    /*Creation of the procedure for the acquisition of the student’s password*/
+    public void setPassword(String password){
+        this.password = password;
+    }
+    /*Creation of function for visualization of the student’s password*/
+    public String getPassword(){
+        return this.password;
+    }
+
 
     /*Creation of the procedure for the acquisition of the student’s email*/
     public void setEmail(String email){

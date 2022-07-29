@@ -4,17 +4,12 @@ public class Main {
         s.setName("Francesco");
         s.setSurname("Grauso");
         s.setUsername("ErCrasher");
+        s.setPassword("soloio");
         s.setEmail("francescograuso@live.it");
         s.setCF("GRSFNC02M27M28B");
 
-        System.out.println(s.getName());
-        System.out.println(s.getSurname());
-        System.out.println(s.getUsername());
-        System.out.println(s.getEmail());
-        System.out.println(s.getCF());
-
         GestioneSegreteria gs = new GestioneSegreteria();
-        gs.registerUser(s)
-
+        gs.registerUser(s);
+        gs.loginUser(s);
     }
 }
