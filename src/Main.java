@@ -25,19 +25,19 @@ public class Main {
         //create label login
         JLabel l_login = new JLabel("Login");
         //create labels user and pw
-        JLabel l_email = new JLabel("EMAIL");
+        JLabel l_user = new JLabel("USERNAME");
         JLabel l_password = new JLabel("PASSWORD");
 
         //create textfield user and pw
-        JTextField field_email = new JTextField();
+        JTextField field_user = new JTextField();
         JPasswordField field_pw = new JPasswordField();
 
         //create button login
         JButton b_login = new JButton("LOGIN");
         JButton b_registration = new JButton("REGISTRATION");
         //properties of all this components
-        l_email.setBounds(50, 150, 100, 30);
-        field_email.setBounds(150, 150, 150, 30);
+        l_user.setBounds(50, 150, 100, 30);
+        field_user.setBounds(150, 150, 150, 30);
         l_password.setBounds(50, 220, 100, 30);
         field_pw.setBounds(150, 220, 150, 30);
         b_login.setBounds(125, 290, 100, 40);
@@ -50,7 +50,7 @@ public class Main {
                 JLabel l_password = null;
 
                 //create textfield user and pw
-                field_email.setVisible(false);
+                field_user.setVisible(false);
                 field_pw.setVisible(false);
 
                 //create button login
@@ -64,8 +64,8 @@ public class Main {
         });
 
         //add element in frame
-        frame.add(l_email);
-        frame.add(field_email);
+        frame.add(l_user);
+        frame.add(field_user);
         frame.add(l_password);
         frame.add(field_pw);
         frame.add(b_login);
@@ -88,11 +88,13 @@ public class Main {
         //create labels user and pw
         JLabel l_name = new JLabel("NAME");
         JLabel l_surname = new JLabel("SURNAME");
+        JLabel l_user = new JLabel("USERNAME");
         JLabel l_cf = new JLabel("CODICE FISCALE");
         JLabel l_email = new JLabel("EMAIL");
         JLabel l_password = new JLabel("PASSWORD");
 
         //create textfield user and pw
+        JTextField field_user = new JTextField();
         JTextField field_email = new JTextField();
         JPasswordField field_pw = new JPasswordField();
         JTextField field_name = new JTextField();
@@ -106,13 +108,15 @@ public class Main {
         field_name.setBounds(150, 150, 150, 30);
         l_surname.setBounds(50, 220, 100, 30);
         field_surname.setBounds(150, 220, 150, 30);
-        l_cf.setBounds(50, 290, 100, 30);
-        field_cf.setBounds(150, 290, 150, 30);
-        l_email.setBounds(50, 360, 100, 30);
-        field_email.setBounds(150, 360, 150, 30);
-        l_password.setBounds(50, 430, 100, 30);
-        field_pw.setBounds(150, 430, 150, 30);
-        b_registration.setBounds(75, 500, 200, 40);
+        l_user.setBounds(50, 290, 100, 30);
+        field_user.setBounds(150, 290, 150, 30);
+        l_cf.setBounds(50, 360, 100, 30);
+        field_cf.setBounds(150, 360, 150, 30);
+        l_email.setBounds(50, 430, 100, 30);
+        field_email.setBounds(150, 430, 150, 30);
+        l_password.setBounds(50, 500, 100, 30);
+        field_pw.setBounds(150, 500, 150, 30);
+        b_registration.setBounds(75, 700, 200, 40);
 
 
         //add element in frame
@@ -120,6 +124,8 @@ public class Main {
         frame.add(field_name);
         frame.add(l_surname);
         frame.add(field_surname);
+        frame.add(l_user);
+        frame.add(field_user);
         frame.add(l_cf);
         frame.add(field_cf);
         frame.add(l_email);
