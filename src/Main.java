@@ -1,18 +1,20 @@
 public class Main {
     public static void main(String[] args) {
-        Studente s1 = new Studente();
-        s1.setName("Francesco");
-        s1.setSurname("Grauso");
-        s1.setUsername("ErCrasher");
-        s1.setEmail("francescograuso@live.it");
-        s1.setCF("GRSFNC02M27M28B");
+        Studente s = new Studente();
+        s.setName("Francesco");
+        s.setSurname("Grauso");
+        s.setUsername("ErCrasher");
+        s.setEmail("francescograuso@live.it");
+        s.setCF("GRSFNC02M27M28B");
 
-        System.out.println(s1.getName());
-        System.out.println(s1.getSurname());
-        System.out.println(s1.getUsername());
-        System.out.println(s1.getEmail());
-        System.out.println(s1.getCF());
+        System.out.println(s.getName());
+        System.out.println(s.getSurname());
+        System.out.println(s.getUsername());
+        System.out.println(s.getEmail());
+        System.out.println(s.getCF());
 
+        GestioneSegreteria gs = new GestioneSegreteria();
+        gs.registerUser(s)
 
     }
 }
