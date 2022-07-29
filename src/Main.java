@@ -42,11 +42,24 @@ public class Main {
         field_pw.setBounds(150, 220, 150, 30);
         b_login.setBounds(125, 290, 100, 40);
         b_registration.setBounds(75, 350, 200, 40);
+        //b_registration.mouseClicked();
 
         b_registration.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
+                JLabel l_email = null;
+                JLabel l_password = null;
+
+                //create textfield user and pw
+                field_email.setVisible(false);
+                field_pw.setVisible(false);
+
+                //create button login
+                b_login.setVisible(false);
+                b_registration.setVisible(false);
+                frame.setVisible(false);//at the moment this frame is not visible
+
                 /*Call of the procedure for viewing the registration interface*/
-                SignUp();
+                SignUp(frame);
             }
         });
 
@@ -60,10 +73,10 @@ public class Main {
     }
 
     /*Procedure for displaying the recording interface*/
-    public static void SignUp(){
+    public static void SignUp(JFrame frame){
         //create frame obj and set poperties
-        JFrame frame = new JFrame();
-        frame.setTitle("Login Form");
+        //JFrame frame = new JFrame();
+        frame.setTitle("Sign Up Form");
         frame.setVisible(true);
         frame.setLayout(null);
         frame.setSize(400, 500);//400 width and 500 height
@@ -71,7 +84,7 @@ public class Main {
         frame.setResizable(true);
 
         //create label login
-        JLabel l_login = new JLabel("Login");
+        JLabel l_login = new JLabel("Registration");
         //create labels user and pw
         JLabel l_name = new JLabel("NAME");
         JLabel l_surname = new JLabel("SURNAME");
