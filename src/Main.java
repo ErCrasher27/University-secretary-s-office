@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
-        Studente s = new Studente();
+        Student s = new Student();
         s.setName("Francesco");
         s.setSurname("Grauso");
         s.setUsername("ErCrasher");
@@ -13,7 +13,7 @@ public class Main {
         s.setEmail("francescograuso@live.it");
         s.setCF("GRSFNC02M27M28B");
 
-        Studente s2 = new Studente();
+        Student s2 = new Student();
         s2.setName("Vincenzo");
         s2.setSurname("Angelini");
         s2.setUsername("schifName");
@@ -22,8 +22,8 @@ public class Main {
         s2.setCF("VNCSDIDJ23NJSDS");
 
         GestioneSegreteria gs = new GestioneSegreteria();
-        gs.registerStudent(s);
-        gs.registerStudent(s2);
-        //gs.loginUser(s);
+        //gs.registerStudent(s);
+        //gs.registerStudent(s2);
+        gs.loginStudent(s);
     }
 }

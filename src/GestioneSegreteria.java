@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -13,10 +14,10 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class GestioneSegreteria {
-    Studente s;
+    Student s;
 
     //function that register student in json file
-    public void registerStudent(Studente s) {
+    public void registerStudent(Student s) {
 
         //define json obj, array, parser
         JSONObject jobj = new JSONObject();
@@ -25,7 +26,7 @@ public class GestioneSegreteria {
 
         //read file to add content in jrr (from jp)
         try {
-            FileReader file = new FileReader("Studenti.json");
+            FileReader file = new FileReader("Students.json");
             jrr = (JSONArray) jp.parse(file);
         } catch (Exception ex) {
             System.out.println("Errore");
@@ -45,7 +46,7 @@ public class GestioneSegreteria {
 
         //write on json file adding jrr
         try {
-            FileWriter file = new FileWriter("Studenti.json");
+            FileWriter file = new FileWriter("Students.json");
             file.write(jrr.toJSONString());
             file.close();
         } catch (Exception ex) {
@@ -55,46 +56,45 @@ public class GestioneSegreteria {
     }
 
     //function that login student in json
-    public void loginUser(Studente s) throws IOException, ParseException {
+    public void loginStudent(Student s) {
 
-        //get user e password for check it with json
-        // String username = s.getUsername();
-        // String password = s.getPassword();
+        //define obj, json array and json parser
+        Object obj = null;
+        JSONArray jrr = new JSONArray();
+        JSONParser Jp = new JSONParser();
 
-        //JSON parser object to parse read file
-        JSONParser jsonParser = new JSONParser();
-
-        try (FileReader reader = new FileReader("Studenti.json")) {
-            //Read JSON file
-            Object obj = jsonParser.parse(reader);
-
-            JSONArray employeeList = (JSONArray) obj;
-            System.out.println(employeeList);
-
-            //Iterate over employee array
-            employeeList.forEach(emp -> parseEmployeeObject((JSONObject) emp));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
+        //read file nad parse in jrr
+        try {
+            FileReader file = new FileReader("Students.json");
+            obj = Jp.parse(file);
+            jrr = (JSONArray) obj;
+            file.close();
+        } catch (
+                Exception ex) {
+            System.out.println("Errore");
         }
 
+        //declare json obj to put inside username and pw
+        JSONObject jobj = new JSONObject();
+        jobj.put("Username", s.getUsername());
+        jobj.put("Password", s.getPassword());
+        boolean matched = false;
+
+        //loop to check validation
+        for (int i = 0; i < jrr.size(); i++) {
+            if (jobj.equals(jrr.get(i))) {
+                matched = true;
+                break;
+            }
+        }
+
+        //output if matched or not
+        if(matched){
+            System.out.println("Login effetuato con successo");
+        }
+        else{
+            System.out.println("Username o Password errati");
+        }
     }
 
-    private void parseEmployeeObject(JSONObject emp) {
-        //Get employee object within list
-        JSONObject employeeObject = (JSONObject) emp.get("Studente");
-
-        //Get employee first name
-        String firstName = (String) employeeObject.get("Nome");
-        System.out.println(firstName);
-
-        //Get employee last name
-        String lastName = (String) employeeObject.get("Cognome");
-        System.out.println(lastName);
-
-    }
 }

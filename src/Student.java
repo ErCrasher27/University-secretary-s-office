@@ -1,15 +1,9 @@
 /*Class Students containing all functions for operations on student data*/
-import java.io.*;
-import java.util.*;
-import java.util.Scanner;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 //import org.json.*;
 /*Creation of the class Students*/
-public class Studente {
+public class Student {
     private String name, surname, username, password, email, cf = null;
 
     /*Creation of the procedure for the acquisition of the student’s name*/
