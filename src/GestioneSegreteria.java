@@ -1,5 +1,7 @@
-import java.io.*;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,7 +14,6 @@ import org.json.simple.parser.ParseException;
 
 public class GestioneSegreteria {
     Studente s;
-    JSONArray studentList  = new JSONArray();
     //function that register student in json
     public int registerUser(Studente s) {
 
@@ -30,11 +31,12 @@ public class GestioneSegreteria {
         JSONObject student = new JSONObject();
         student.put("Studente", student_stats);
 
-        //Add employees to list
-        this.studentList.add(student);
+        //add student to list
+        JSONArray studentList  = new JSONArray();
+        studentList.add(student);
 
         //write on JSON file
-        try (FileWriter file = new FileWriter("Studenti.json", true)) {
+        try (FileWriter file = new FileWriter("Studenti.json")) {
             file.write(studentList.toJSONString());
             file.flush();
         } catch (IOException e) {
