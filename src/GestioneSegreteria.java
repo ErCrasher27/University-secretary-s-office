@@ -14,36 +14,44 @@ import org.json.simple.parser.ParseException;
 
 public class GestioneSegreteria {
     Studente s;
-    //function that register student in json
-    public int registerUser(Studente s) {
 
-        //set student stats
-        JSONObject student_stats = new JSONObject();
-        student_stats.put("Id", "1");
-        student_stats.put("Nome", s.getName());
-        student_stats.put("Cognome", s.getSurname());
-        student_stats.put("Username", s.getUsername());
-        student_stats.put("Password", s.getPassword());
-        student_stats.put("Email", s.getEmail());
-        student_stats.put("CF", s.getCF());
+    //function that register student in json file
+    public void registerStudent(Studente s) {
 
-        //add in student
-        JSONObject student = new JSONObject();
-        student.put("Studente", student_stats);
+        //define json obj, array, parser
+        JSONObject jobj = new JSONObject();
+        JSONArray jrr = new JSONArray();
+        JSONParser jp = new JSONParser();
 
-        //add student to list
-        JSONArray studentList  = new JSONArray();
-        studentList.add(student);
-
-        //write on JSON file
-        try (FileWriter file = new FileWriter("Studenti.json")) {
-            file.write(studentList.toJSONString());
-            file.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+        //read file to add content in jrr (from jp)
+        try {
+            FileReader file = new FileReader("Studenti.json");
+            jrr = (JSONArray) jp.parse(file);
+        } catch (Exception ex) {
+            System.out.println("Errore");
         }
 
-        return 1;
+        //adding student's stats to json object
+        jobj.put("Id", "1");
+        jobj.put("Nome", s.getName());
+        jobj.put("Cognome", s.getSurname());
+        jobj.put("Username", s.getUsername());
+        jobj.put("Password", s.getPassword());
+        jobj.put("Email", s.getEmail());
+        jobj.put("CF", s.getCF());
+
+        //add jobj in jrr, now jrr has  all students + the last registration
+        jrr.add(jobj);
+
+        //write on json file adding jrr
+        try {
+            FileWriter file = new FileWriter("Studenti.json");
+            file.write(jrr.toJSONString());
+            file.close();
+        } catch (Exception ex) {
+            System.out.println("Errore");
+        }
+        System.out.println("Registrazione avvenuta con successo");
     }
 
     //function that login student in json
