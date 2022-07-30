@@ -1,6 +1,3 @@
-//FRONTEND
-//Edit of 29/07/2022
-//import java swing and awt needed for UI
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,130 +5,84 @@ import java.awt.event.ActionListener;
 
 public class Main {
     public static void main(String[] args) {
-        /*Call of the procedure for viewing the login interface*/
-        Login();
+
+        //init components
+        login();
     }
-    /*Procedure for viewing the login interface*/
-    public static void Login(){
-        //create frame obj and set poperties
-        JFrame frame = new JFrame();
-        frame.setTitle("Login Form");
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setSize(400, 500);//400 width and 500 height
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
 
-        //create label login
-        JLabel l_login = new JLabel("Login");
-        //create labels user and pw
-        JLabel l_user = new JLabel("USERNAME");
-        JLabel l_password = new JLabel("PASSWORD");
+    //fun that init comp
+    private static void login() {
 
-        //create textfield user and pw
-        JTextField field_user = new JTextField();
-        JPasswordField field_pw = new JPasswordField();
+        //declare and set labels_login_title properties
+        JLabel label_login_title = new JLabel();
+        label_login_title.setFont(new java.awt.Font("Tahoma", 0, 36));
+        label_login_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_login_title.setText("Login");
 
-        //create button login
-        JButton b_login = new JButton("LOGIN");
-        JButton b_registration = new JButton("REGISTRATION");
-        //properties of all this components
-        l_user.setBounds(50, 150, 100, 30);
-        field_user.setBounds(150, 150, 150, 30);
-        l_password.setBounds(50, 220, 100, 30);
-        field_pw.setBounds(150, 220, 150, 30);
-        b_login.setBounds(125, 290, 100, 40);
-        b_registration.setBounds(75, 350, 200, 40);
-        //b_registration.mouseClicked();
+        //declare and set label_username properties
+        JLabel label_username = new JLabel();
+        label_username.setFont(new java.awt.Font("Times New Roman", 0, 24));
+        label_username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_username.setText("Username");
 
-        b_registration.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                JLabel l_email = null;
-                JLabel l_password = null;
+        //declare and set label_password properties
+        JLabel label_password = new JLabel();
+        label_password.setFont(new java.awt.Font("Times New Roman", 0, 24));
+        label_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_password.setText("Password");
 
-                //create textfield user and pw
-                field_user.setVisible(false);
-                field_pw.setVisible(false);
-
-                //create button login
-                b_login.setVisible(false);
-                b_registration.setVisible(false);
-                frame.setVisible(false);//at the moment this frame is not visible
-
-                /*Call of the procedure for viewing the registration interface*/
-                SignUp(frame);
+        //declare and set button login properties and event
+        JButton button_login = new JButton();
+        button_login.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_login.setText("Login");
+        button_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLoginActionPerformed(evt);
             }
         });
 
-        //add element in frame
-        frame.add(l_user);
-        frame.add(field_user);
-        frame.add(l_password);
-        frame.add(field_pw);
-        frame.add(b_login);
-        frame.add(b_registration);
+        //declare and set button register properties and event
+        JButton button_register = new JButton();
+        button_register.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_register.setText("Registrati");
+        button_register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRegisterActionPerformed(evt);
+            }
+        });
+
+        //declare and set text field username properties
+        JTextField field_username = new JTextField();
+        field_username.setFont(new java.awt.Font("Times New Roman", 0, 24));
+
+        //set password field username properties
+        JTextField field_password = new JTextField();
+        field_password.setFont(new java.awt.Font("Times New Roman", 0, 24));
+
+        //declare and set panel properties (and add components)
+        JPanel pannello_login = new JPanel(new GridLayout(3, 1));
+        pannello_login.add(label_username);
+        pannello_login.add(field_username);
+        pannello_login.add(label_password);
+        pannello_login.add(field_password);
+        pannello_login.add(button_login);
+        pannello_login.setVisible(true);
+
+        //declare and set panel properties (and add panel)
+        JFrame frame = new JFrame();
+        frame.setTitle("Segreteria Universitaria");
+        frame.setLocation(new Point(500, 300));
+        frame.add(pannello_login);
+        frame.setSize(new Dimension(400, 200));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 
-    /*Procedure for displaying the recording interface*/
-    public static void SignUp(JFrame frame){
-        //create frame obj and set poperties
-        //JFrame frame = new JFrame();
-        frame.setTitle("Sign Up Form");
-        frame.setVisible(true);
-        frame.setLayout(null);
-        frame.setSize(400, 500);//400 width and 500 height
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
+    private static void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {
+        //code
+    }
 
-        //create label login
-        JLabel l_login = new JLabel("Registration");
-        //create labels user and pw
-        JLabel l_name = new JLabel("NAME");
-        JLabel l_surname = new JLabel("SURNAME");
-        JLabel l_user = new JLabel("USERNAME");
-        JLabel l_cf = new JLabel("CODICE FISCALE");
-        JLabel l_email = new JLabel("EMAIL");
-        JLabel l_password = new JLabel("PASSWORD");
-
-        //create textfield user and pw
-        JTextField field_user = new JTextField();
-        JTextField field_email = new JTextField();
-        JPasswordField field_pw = new JPasswordField();
-        JTextField field_name = new JTextField();
-        JTextField field_surname = new JTextField();
-        JTextField field_cf = new JTextField();
-
-        //create button login
-        JButton b_registration = new JButton("REGISTRATION");
-        //properties of all this components
-        l_name.setBounds(50, 150, 100, 30);
-        field_name.setBounds(150, 150, 150, 30);
-        l_surname.setBounds(50, 220, 100, 30);
-        field_surname.setBounds(150, 220, 150, 30);
-        l_user.setBounds(50, 290, 100, 30);
-        field_user.setBounds(150, 290, 150, 30);
-        l_cf.setBounds(50, 360, 100, 30);
-        field_cf.setBounds(150, 360, 150, 30);
-        l_email.setBounds(50, 430, 100, 30);
-        field_email.setBounds(150, 430, 150, 30);
-        l_password.setBounds(50, 500, 100, 30);
-        field_pw.setBounds(150, 500, 150, 30);
-        b_registration.setBounds(75, 700, 200, 40);
-
-
-        //add element in frame
-        frame.add(l_name);
-        frame.add(field_name);
-        frame.add(l_surname);
-        frame.add(field_surname);
-        frame.add(l_user);
-        frame.add(field_user);
-        frame.add(l_cf);
-        frame.add(field_cf);
-        frame.add(l_email);
-        frame.add(field_email);
-        frame.add(l_password);
-        frame.add(field_pw);
-        frame.add(b_registration);
+    private static void buttonRegisterActionPerformed(java.awt.event.ActionEvent evt) {
+        //code
     }
 }
