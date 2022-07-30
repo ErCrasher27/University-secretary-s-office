@@ -3,7 +3,22 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class Frame {
+
+    //prepare frame
     private static JFrame frame;
+
+    //prepare field for login
+    private static JTextField field_username_login;
+    private static JTextField field_password_login;
+
+    //prepare field for register
+    private static JTextField field_name;
+    private static JTextField field_surname;
+    private static JTextField field_email;
+    private static JTextField field_cf;
+    private static JTextField field_username;
+    private static JTextField field_password;
+
 
     public Frame() {
         //declare and set panel properties (and add panel)
@@ -63,6 +78,32 @@ public class Frame {
     private static void login() {
         clearFrame();
 
+        //declare and set labels_login_title properties
+        JLabel label_login_title = new JLabel();
+        label_login_title.setFont(new java.awt.Font("Tahoma", 0, 36));
+        label_login_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_login_title.setText("Login");
+
+        //declare and set label_username properties
+        JLabel label_username = new JLabel();
+        label_username.setFont(new java.awt.Font("Times New Roman", 0, 24));
+        label_username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_username.setText("Username");
+
+        //declare and set label_password properties
+        JLabel label_password = new JLabel();
+        label_password.setFont(new java.awt.Font("Times New Roman", 0, 24));
+        label_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_password.setText("Password");
+
+        //declare and set text field username properties
+        field_username_login = new JTextField();
+        field_username_login.setFont(new java.awt.Font("Times New Roman", 0, 24));
+
+        //set password field username properties
+        field_password_login = new JTextField();
+        field_password_login.setFont(new java.awt.Font("Times New Roman", 0, 24));
+
         //declare and set button menu properties and event
         JButton button_menu = new JButton();
         button_menu.setFont(new java.awt.Font("Tahoma", 0, 24));
@@ -83,39 +124,13 @@ public class Frame {
             }
         });
 
-        //declare and set labels_login_title properties
-        JLabel label_login_title = new JLabel();
-        label_login_title.setFont(new java.awt.Font("Tahoma", 0, 36));
-        label_login_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_login_title.setText("Login");
-
-        //declare and set label_username properties
-        JLabel label_username = new JLabel();
-        label_username.setFont(new java.awt.Font("Times New Roman", 0, 24));
-        label_username.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_username.setText("Username");
-
-        //declare and set label_password properties
-        JLabel label_password = new JLabel();
-        label_password.setFont(new java.awt.Font("Times New Roman", 0, 24));
-        label_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_password.setText("Password");
-
-        //declare and set text field username properties
-        JTextField field_username = new JTextField();
-        field_username.setFont(new java.awt.Font("Times New Roman", 0, 24));
-
-        //set password field username properties
-        JTextField field_password = new JTextField();
-        field_password.setFont(new java.awt.Font("Times New Roman", 0, 24));
-
         //declare and set panel properties (and add components)
         JPanel pannello_login = new JPanel(new GridLayout(3, 1));
         pannello_login.add(button_menu);
         pannello_login.add(label_username);
-        pannello_login.add(field_username);
+        pannello_login.add(field_username_login);
         pannello_login.add(label_password);
-        pannello_login.add(field_password);
+        pannello_login.add(field_password_login);
         pannello_login.add(button_login);
         pannello_login.setVisible(true);
 
@@ -128,26 +143,6 @@ public class Frame {
     //fun that load register page
     private static void register() {
         clearFrame();
-
-        //declare and set button menu properties and event
-        JButton button_menu = new JButton();
-        button_menu.setFont(new java.awt.Font("Tahoma", 0, 24));
-        button_menu.setText("Menu");
-        button_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonMenuActionPerformed(evt);
-            }
-        });
-
-        //declare and set button register properties and event
-        JButton button_register = new JButton();
-        button_register.setFont(new java.awt.Font("Tahoma", 0, 24));
-        button_register.setText("Registrati");
-        button_register.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRegisterActionPerformed(evt);
-            }
-        });
 
         //declare and set labels_login_title properties
         JLabel label_register_title = new JLabel();
@@ -192,28 +187,48 @@ public class Frame {
         label_password.setText("Password");
 
         //declare and set text field name properties
-        JTextField field_name = new JTextField();
+        field_name = new JTextField();
         field_name.setFont(new java.awt.Font("Times New Roman", 0, 24));
 
         //set password field surname properties
-        JTextField field_surname = new JTextField();
+        field_surname = new JTextField();
         field_surname.setFont(new java.awt.Font("Times New Roman", 0, 24));
 
         //declare and set text field email properties
-        JTextField field_email = new JTextField();
+        field_email = new JTextField();
         field_email.setFont(new java.awt.Font("Times New Roman", 0, 24));
 
         //set password field cf properties
-        JTextField field_cf = new JTextField();
+        field_cf = new JTextField();
         field_cf.setFont(new java.awt.Font("Times New Roman", 0, 24));
 
         //declare and set text field username properties
-        JTextField field_username = new JTextField();
+        field_username = new JTextField();
         field_username.setFont(new java.awt.Font("Times New Roman", 0, 24));
 
         //set password field username properties
-        JTextField field_password = new JTextField();
+        field_password = new JTextField();
         field_password.setFont(new java.awt.Font("Times New Roman", 0, 24));
+
+        //declare and set button menu properties and event
+        JButton button_menu = new JButton();
+        button_menu.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_menu.setText("Menu");
+        button_menu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonMenuActionPerformed(evt);
+            }
+        });
+
+        //declare and set button register properties and event
+        JButton button_register = new JButton();
+        button_register.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_register.setText("Registrati");
+        button_register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRegisterActionPerformed(evt);
+            }
+        });
 
         //declare and set panel properties (and add components)
         JPanel pannello_register = new JPanel(new GridLayout(14, 2));
@@ -264,10 +279,32 @@ public class Frame {
 
     //event that login student
     private static void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {
+
+        //create student obj
+        Student s = new Student();
+        s.setUsername(field_username_login.getText());
+        s.setPassword(field_password_login.getText());
+
+        //login student
+        UniversitySecretary us = new UniversitySecretary();
+        us.loginStudent(s);
     }
 
     //event that register student
     private static void buttonRegisterActionPerformed(ActionEvent evt) {
+
+        //create student obj
+        Student s = new Student();
+        s.setName(field_name.getText());
+        s.setSurname(field_surname.getText());
+        s.setEmail(field_email.getText());
+        s.setCF(field_cf.getText());
+        s.setUsername(field_username.getText());
+        s.setPassword(field_password.getText());
+
+        //register student
+        UniversitySecretary us = new UniversitySecretary();
+        us.registerStudent(s);
     }
 
 

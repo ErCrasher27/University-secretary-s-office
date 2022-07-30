@@ -5,7 +5,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class UniversitySecretary {
-    Student s;
 
     //function that register student in json file
     public void registerStudent(Student s) {
