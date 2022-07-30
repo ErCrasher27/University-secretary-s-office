@@ -1,6 +1,4 @@
 import org.json.simple.parser.ParseException;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main {
@@ -22,8 +20,8 @@ public class Main {
         s2.setCF("VNCSDIDJ23NJSDS");
 
         GestioneSegreteria gs = new GestioneSegreteria();
-        //gs.registerStudent(s);
-        //gs.registerStudent(s2);
-        gs.loginStudent(s);
+        gs.registerStudent(s);
+        gs.registerStudent(s2);
+        gs.loginStudent(s2);
     }
 }

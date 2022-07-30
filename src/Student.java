@@ -1,7 +1,6 @@
 /*Class Students containing all functions for operations on student data*/
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-//import org.json.*;
 /*Creation of the class Students*/
 public class Student {
     private String name, surname, username, password, email, cf = null;
