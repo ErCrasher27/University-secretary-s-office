@@ -102,6 +102,7 @@ public class Main {
 
         //declare and set panel properties (and add components)
         JPanel pannello_login = new JPanel(new GridLayout(3, 1));
+
         pannello_login.add(button_menu);
         pannello_login.add(label_username);
         pannello_login.add(field_username);
