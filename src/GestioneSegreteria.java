@@ -58,30 +58,58 @@ public class GestioneSegreteria {
     //function that login student in json
     public void loginStudent(Student s) {
 
-        //define obj, json array and json parser
+        //define obj, json array, json parser and obj result
         Object obj = null;
         JSONArray jrr = new JSONArray();
         JSONParser Jp = new JSONParser();
 
-        //read file nad parse in jrr
+        //read file and parse in jrr
         try {
             FileReader file = new FileReader("Students.json");
             obj = Jp.parse(file);
             jrr = (JSONArray) obj;
+
+            //prepare user_pass as JSON ARRAY for compare with obj want login
+            JSONObject parser_obj = null;
+            JSONObject user_pass = new JSONObject();
+            JSONArray user_pass_array = new JSONArray();
+
+            for (int i = 0; i < jrr.size(); i++) {
+                parser_obj = (JSONObject) jrr.get(i);
+
+                System.out.println(((JSONObject) jrr.get(i)).get("Username"));
+
+                user_pass.put("Username", (String) parser_obj.get("Username"));
+                user_pass.put("Password", (String) parser_obj.get("Password"));
+
+                user_pass_array.add(user_pass);
+
+
+            }
+
             file.close();
         } catch (
                 Exception ex) {
             System.out.println("Errore");
         }
 
-        //declare json obj to put inside username and pw
+        //declare json obj to put inside username and pw (prepare obj want login)
         JSONObject jobj = new JSONObject();
         jobj.put("Username", s.getUsername());
         jobj.put("Password", s.getPassword());
+        System.out.println(jobj.get("Username"));
+
+
+        System.out.println(jobj);
         boolean matched = false;
 
         //loop to check validation
         for (int i = 0; i < jrr.size(); i++) {
+
+            if (((JSONObject) jrr.get(i)).get("Username").equals(jobj.get("Username"))) {
+                System.out.println("andato bro");
+            }
+
             if (jobj.equals(jrr.get(i))) {
                 matched = true;
                 break;
@@ -89,10 +117,9 @@ public class GestioneSegreteria {
         }
 
         //output if matched or not
-        if(matched){
+        if (matched) {
             System.out.println("Login effetuato con successo");
-        }
-        else{
+        } else {
             System.out.println("Username o Password errati");
         }
     }
