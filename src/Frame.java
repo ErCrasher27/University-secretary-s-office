@@ -122,7 +122,6 @@ public class Frame {
 
     //-----------------------------------------functions events-----------------------------------------
     private static void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {
-        //code
     }
 
     private static void buttonMenuActionPerformed(java.awt.event.ActionEvent evt) {
