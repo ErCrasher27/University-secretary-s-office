@@ -1,18 +1,58 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 //move it
 public class Main {
+    private static JFrame frame;
+
     public static void main(String[] args) {
 
-        //init components
-        login();
+        //declare and set panel properties (and add panel)
+        frame = new JFrame();
+        frame.setTitle("Segreteria Universitaria");
+        frame.setLocation(new Point(500, 300));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //call menu
+        menu();
     }
 
-    //fun that init comp
+    //fun that init menu
+    private static void menu() {
+        clearFrame();
+
+        //declare and set title menu properties
+        JLabel label_menu = new JLabel();
+        label_menu.setFont(new java.awt.Font("Tahoma", 0, 36));
+        label_menu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_menu.setText("Login");
+
+        //declare and set button login section properties and event
+        JButton button_login_section = new JButton();
+        button_login_section.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_login_section.setText("Login");
+        button_login_section.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLoginSectionActionPerformed(evt);
+            }
+        });
+
+        //declare and set panel properties (and add components)
+        JPanel pannello_menu = new JPanel(new GridLayout(3, 1));
+        pannello_menu.add(label_menu);
+        pannello_menu.add(button_login_section);
+        pannello_menu.setVisible(true);
+
+        frame.add(pannello_menu);
+        frame.setSize(400, 200);
+        frame.setVisible(true);
+    }
+
+
+    //fun that load login
     private static void login() {
+        clearFrame();
 
         //declare and set labels_login_title properties
         JLabel label_login_title = new JLabel();
@@ -43,12 +83,12 @@ public class Main {
         });
 
         //declare and set button register properties and event
-        JButton button_register = new JButton();
-        button_register.setFont(new java.awt.Font("Tahoma", 0, 24));
-        button_register.setText("Registrati");
-        button_register.addActionListener(new java.awt.event.ActionListener() {
+        JButton button_menu = new JButton();
+        button_menu.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_menu.setText("Menu");
+        button_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonRegisterActionPerformed(evt);
+                buttonMenuActionPerformed(evt);
             }
         });
 
@@ -62,6 +102,7 @@ public class Main {
 
         //declare and set panel properties (and add components)
         JPanel pannello_login = new JPanel(new GridLayout(3, 1));
+        pannello_login.add(button_menu);
         pannello_login.add(label_username);
         pannello_login.add(field_username);
         pannello_login.add(label_password);
@@ -69,21 +110,27 @@ public class Main {
         pannello_login.add(button_login);
         pannello_login.setVisible(true);
 
-        //declare and set panel properties (and add panel)
-        JFrame frame = new JFrame();
-        frame.setTitle("Segreteria Universitaria");
-        frame.setLocation(new Point(500, 300));
         frame.add(pannello_login);
-        frame.setSize(new Dimension(400, 200));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        frame.setSize(400, 200);
+        frame.setVisible(true);    }
+
+    //fun that clear frame
+    private static void clearFrame() {
+        frame.getContentPane().removeAll();
+        frame.repaint();
     }
 
+    //-----------------------------------------functions events-----------------------------------------
     private static void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {
         //code
     }
 
-    private static void buttonRegisterActionPerformed(java.awt.event.ActionEvent evt) {
+    private static void buttonMenuActionPerformed(java.awt.event.ActionEvent evt) {
+        menu();
         //code
+    }
+
+    private static void buttonLoginSectionActionPerformed(ActionEvent evt) {
+        login();
     }
 }
