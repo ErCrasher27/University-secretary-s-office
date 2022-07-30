@@ -6,6 +6,6 @@ import java.awt.event.ActionListener;
 //move it
 public class Main {
     public static void main(String[] args) {
-        System.out.println("check");
+        Frame frame = new Frame();
     }
 }
