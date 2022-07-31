@@ -1,9 +1,17 @@
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FrameBooking {
     private static JFrame frame;
+    private static JFormattedTextField field_date;
 
     public FrameBooking(String s) {
 
@@ -71,8 +79,11 @@ public class FrameBooking {
         label_date.setText("Data");
 
         //declare and set text field date properties
-        JTextField field_date = new JTextField();
-        field_date.setFont(new java.awt.Font("Times New Roman", 0, 24));
+        DateFormat dateFormat = new SimpleDateFormat("dd MMM YYYY");
+        field_date = new JFormattedTextField(dateFormat);
+        field_date.setName("Today");
+        field_date.setColumns(10);
+        field_date.setEditable(false);
 
         //declare and set button book properties and event
         JButton button_menu = new JButton();
@@ -158,6 +169,11 @@ public class FrameBooking {
 
     //book
     private static void buttonBookActionPerformed(ActionEvent evt) {
+
+
+        UniversitySecretary us = new UniversitySecretary();
+        System.out.println(field_date);
+        //us.checkBookingExist(field_date);
         System.out.println("call fun code that do a booking (with id_student == id logged)");
     }
 
