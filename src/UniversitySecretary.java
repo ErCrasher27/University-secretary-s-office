@@ -6,6 +6,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import javax.swing.*;
+
 public class UniversitySecretary {
 
     //function that register student in json file
@@ -92,7 +94,7 @@ public class UniversitySecretary {
     //*******************************************************************************code here all fun for book*******************************************************************************
 
     //fun that check if booking exist
-    public boolean checkBookingExist(Date date) {
+    public boolean checkBookingExist(String date) {
 
         //define obj, json array and json parser
         Object obj = null;
@@ -112,17 +114,53 @@ public class UniversitySecretary {
 
         //declare json obj to put inside username and pw (prepare obj want login)
         JSONObject jobj = new JSONObject();
-        jobj.put("Date", date);
+        jobj.put("Data", date);
         boolean matched = false;
 
         //loop to check validation
         for (int i = 0; i < jrr.size(); i++) {
-            if (((JSONObject) jrr.get(i)).get("Date").equals(jobj.get("Date"))) {
+            if (((JSONObject) jrr.get(i)).get("Data").equals(jobj.get("Data"))) {
                 matched = true;
-                break;
+                return matched;
             }
         }
+        //return false
         return matched;
+    }
+
+    //function that save the booking
+    public void saveBooking(String date, String note, String id_studente) {
+
+        //define json obj, array, parser
+        JSONObject jobj = new JSONObject();
+        JSONArray jrr = new JSONArray();
+        JSONParser jp = new JSONParser();
+
+        //read file to add content in jrr (from jp)
+        try {
+            FileReader file = new FileReader("Booking.json");
+            jrr = (JSONArray) jp.parse(file);
+        } catch (Exception ex) {
+            System.out.println("Errore");
+        }
+
+        //adding student's stats to json object
+        jobj.put("Data", date);
+        jobj.put("Note", note);
+        jobj.put("Id_student", id_studente);
+
+        //add jobj in jrr, now jrr has  all students + the last registration
+        jrr.add(jobj);
+
+        //write on json file adding jrr
+        try {
+            FileWriter file = new FileWriter("Booking.json");
+            file.write(jrr.toJSONString());
+            file.close();
+        } catch (Exception ex) {
+            System.out.println("Errore");
+        }
+        JOptionPane.showMessageDialog(null, "Prenotazione avvenuta con successo!");
     }
 
 

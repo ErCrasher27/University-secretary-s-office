@@ -1,6 +1,4 @@
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;
+import org.jdatepicker.JDatePicker;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +10,11 @@ import java.util.Date;
 public class FrameBooking {
     private static JFrame frame;
     private static JFormattedTextField field_date;
+    private static JTextField field_note;
+    private static String id_student = null;
 
-    public FrameBooking(String s) {
+    public FrameBooking(String id_studente) {
+        this.id_student = id_studente;
 
         //declare and set panel properties (and add panel)
         frame = new JFrame();
@@ -79,11 +80,13 @@ public class FrameBooking {
         label_date.setText("Data");
 
         //declare and set text field date properties
-        DateFormat dateFormat = new SimpleDateFormat("dd MMM YYYY");
-        field_date = new JFormattedTextField(dateFormat);
-        field_date.setName("Today");
-        field_date.setColumns(10);
-        field_date.setEditable(false);
+        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        field_date = new JFormattedTextField(format);
+        field_date.setValue(new Date());
+
+        //declare and set text field date properties
+        field_note = new JTextField();
+        field_note.setFont(new java.awt.Font("Times New Roman", 0, 24));
 
         //declare and set button book properties and event
         JButton button_menu = new JButton();
@@ -169,12 +172,15 @@ public class FrameBooking {
 
     //book
     private static void buttonBookActionPerformed(ActionEvent evt) {
-
-
+        //create us obj
         UniversitySecretary us = new UniversitySecretary();
-        System.out.println(field_date);
-        //us.checkBookingExist(field_date);
-        System.out.println("call fun code that do a booking (with id_student == id logged)");
+        //check if booking exist already
+        if (!us.checkBookingExist(field_date.getText())) {
+            //call save booking fun parsing fields and is_student
+            us.saveBooking(field_date.getText(), field_note.getText(), id_student);
+        } else {
+            JOptionPane.showMessageDialog(null, "Prenotazione già occupata, riprova con un'altra ora combinazione!");
+        }
     }
 
     //book manage
