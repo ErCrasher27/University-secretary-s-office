@@ -1,5 +1,7 @@
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Date;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -46,9 +48,9 @@ public class UniversitySecretary {
     }
 
     //function that login student in json
-    public void loginStudent(Student s) {
+    public boolean loginStudent(Student s) {
 
-        //define obj, json array, json parser and obj result
+        //define obj, json array and json parser
         Object obj = null;
         JSONArray jrr = new JSONArray();
         JSONParser Jp = new JSONParser();
@@ -68,22 +70,60 @@ public class UniversitySecretary {
         JSONObject jobj = new JSONObject();
         jobj.put("Username", s.getUsername());
         jobj.put("Password", s.getPassword());
+
+        //declare result
         boolean matched = false;
 
         //loop to check validation
         for (int i = 0; i < jrr.size(); i++) {
+
             if ((((JSONObject) jrr.get(i)).get("Username").equals(jobj.get("Username"))) && (((JSONObject) jrr.get(i)).get("Password").equals(jobj.get("Password")))) {
+                //get id and set it, than return matched true
+                String id = (String) ((JSONObject) jrr.get(i)).get("Id");
+                s.setId(id);
+                matched = true;
+                return matched;
+            }
+        }
+        //login failed, so return false
+        return matched;
+    }
+
+    //*******************************************************************************code here all fun for book*******************************************************************************
+
+    //fun that check if booking exist
+    public boolean checkBookingExist(Date date) {
+
+        //define obj, json array and json parser
+        Object obj = null;
+        JSONArray jrr = new JSONArray();
+        JSONParser Jp = new JSONParser();
+
+        //read file and parse in jrr
+        try {
+            FileReader file = new FileReader("Booking.json");
+            obj = Jp.parse(file);
+            jrr = (JSONArray) obj;
+            file.close();
+        } catch (
+                Exception ex) {
+            System.out.println("Errore");
+        }
+
+        //declare json obj to put inside username and pw (prepare obj want login)
+        JSONObject jobj = new JSONObject();
+        jobj.put("Date", date);
+        boolean matched = false;
+
+        //loop to check validation
+        for (int i = 0; i < jrr.size(); i++) {
+            if (((JSONObject) jrr.get(i)).get("Date").equals(jobj.get("Date"))) {
                 matched = true;
                 break;
             }
         }
-
-        //output if matched or not
-        if (matched) {
-            System.out.println("Login effetuato con successo");
-        } else {
-            System.out.println("Username o Password errati");
-        }
+        return matched;
     }
+
 
 }

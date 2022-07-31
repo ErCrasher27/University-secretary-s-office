@@ -3,7 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /*Creation of the class Students*/
 public class Student {
-    private String name, surname, username, password, email, cf = null;
+    private String name, surname, username, password, email, cf, id = null;
 
     /*Creation of the procedure for the acquisition of the student’s name*/
     public void setName(String name){
@@ -66,5 +66,14 @@ public class Student {
     /*Creation of function for visualization of the student’s CF*/
     public String getCF(){
         return this.cf;
+    }
+
+    /*Creation of the procedure for the acquisition of the student’s CF*/
+    public void setId(String id){
+        this.id = id;
+    }
+    /*Creation of function for visualization of the student’s CF*/
+    public String getId(){
+        return this.id;
     }
 }

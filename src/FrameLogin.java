@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class Frame {
+public class FrameLogin {
 
     //prepare frame
     private static JFrame frame;
@@ -19,8 +19,11 @@ public class Frame {
     private static JTextField field_username;
     private static JTextField field_password;
 
+    //id (like a session)
+    private static String id_studente = null;
 
-    public Frame() {
+
+    public FrameLogin() {
         //declare and set panel properties (and add panel)
         frame = new JFrame();
         frame.setTitle("Segreteria Universitaria");
@@ -39,7 +42,7 @@ public class Frame {
         JLabel label_menu = new JLabel();
         label_menu.setFont(new java.awt.Font("Tahoma", 0, 36));
         label_menu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label_menu.setText("Login");
+        label_menu.setText("Menu");
 
         //declare and set button login section properties and event
         JButton button_login_section = new JButton();
@@ -287,7 +290,12 @@ public class Frame {
 
         //login student
         UniversitySecretary us = new UniversitySecretary();
-        us.loginStudent(s);
+        if (us.loginStudent(s)) {
+            id_studente = s.getId();
+            FrameBooking f = new FrameBooking(id_studente);
+        } else {
+            JOptionPane.showMessageDialog(null, "Email e/o Password errati");
+        }
     }
 
     //event that register student

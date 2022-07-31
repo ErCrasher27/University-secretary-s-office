@@ -1,11 +1,1 @@
-[
-  {
-    "Email": "francescograuso@live.it",
-    "CF": "GRSFNC02M27MB45B",
-    "Username": "ErCrasher",
-    "Id": "1",
-    "Nome": "francesco",
-    "Cognome": "grauso",
-    "Password": "soloio"
-  }
-]
+[{"Email":"francescograuso@live.it","CF":"GRSFNC02M27MB45B","Username":"ErCrasher","Id":"1","Nome":"francesco","Cognome":"grauso","Password":"soloio"},{"Email":"prova@gma","CF":"fsadas","Username":"123","Id":"2","Nome":"prova","Cognome":"prova","Password":"123"},{"Email":"aa@aa","CF":"aa","Username":"aa","Id":"1","Nome":"aa","Cognome":"aa","Password":"aa"}]
