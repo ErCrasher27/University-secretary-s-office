@@ -320,8 +320,7 @@ public class FrameLogin {
             //check validation email and cf (in case null empty == true)
             if (s.getEmail() == null) {
                 empty = true;
-            }
-            if (s.getCF() == null) {
+            }else if (s.getCF() == null) {
                 empty = true;
             }
         }
