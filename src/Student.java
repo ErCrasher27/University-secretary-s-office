@@ -1,19 +1,11 @@
-/*Class Students containing all functions for operations on student data*/
-
-import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
-import java.net.PasswordAuthentication;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import java.security.Key;
 import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 
 /*Creation of the class Students*/
 public class Student {
@@ -64,6 +56,7 @@ public class Student {
 
     /*Creation of the procedure for the acquisition of the student’s email*/
     public void setEmail(String email) {
+
         /*Checking for the @ in the email address. If it is present, its existence is verified*/
         Pattern pattern = Pattern.compile("@", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
@@ -138,6 +131,7 @@ public class Student {
     }
 
     public List<Character> surname_cf() {
+
         // dichiaro lista risultato
         List<Character> res_surname = new ArrayList<Character>();
 
@@ -150,6 +144,7 @@ public class Student {
 
         // scompongo il cognome in array char
         char[] cognome_scomposto = new char[this.surname.length()];
+
         // copia array in cognome_scomposto
         for (int i = 0; i < this.surname.length(); i++) {
             cognome_scomposto[i] = this.surname.charAt(i);
@@ -158,22 +153,24 @@ public class Student {
         // ciclo per la lenght del cognome, setto la booleana vocale a false come
         // semaforo, poi ciclo per quante sono le vocali e setto la booleana, se false
         // copio in array result
-
         while (res_surname.size() < 3) {
             if (tentativi == 1) {
                 for (int i = 0; i < this.surname.length(); i++) {
+
                     // se il res è = 3 allora break
                     if (res_surname.size() == 3) {
                         break;
                     }
                     vocale = false;
                     for (int j = 0; j < vocali.length; j++) {
+
                         // comparo cognome[i] e vocale[j]
                         if (cognome_scomposto[i] == vocali[j]) {
                             vocale = true;
                             break;
                         }
                     }
+
                     // pusho il risultato
                     if (!vocale) {
                         res_surname.add(cognome_scomposto[i]);
@@ -181,22 +178,26 @@ public class Student {
                 }
             } else if (tentativi == 2) {
                 for (int i = 0; i < this.surname.length(); i++) {
+
                     // se il res è = 3 allora break
                     if (res_surname.size() == 3) {
                         break;
                     }
                     vocale = false;
                     for (int j = 0; j < vocali.length; j++) {
+
                         // comparo cognome[i] e vocale[j]
                         if (cognome_scomposto[i] == vocali[j]) {
                             vocale = true;
                         }
                     }
+
                     // pusho il risultato (stavolta solo se è vocale)
                     if (vocale) {
                         res_surname.add(cognome_scomposto[i]);
                     }
                 }
+
                 // riempio di x fino a 3
             } else if (tentativi == 3) {
                 while (res_surname.size() < 3) {
@@ -211,6 +212,7 @@ public class Student {
     }
 
     public List<Character> name_cf() {
+
         // dichiaro lista risultato
         List<Character> res_name = new ArrayList<Character>();
 
@@ -224,6 +226,7 @@ public class Student {
 
         // scompongo il nome in array char
         char[] nome_scomposto = new char[this.name.length()];
+
         // copia array in nome_scomposto
         for (int i = 0; i < this.name.length(); i++) {
             nome_scomposto[i] = this.name.charAt(i);
@@ -240,6 +243,7 @@ public class Student {
                 count_consonanti += 1;
             }
         }
+
         // in caso di consonanti minori di 4, allora non salterò la seconda consonante
         if (count_consonanti < 4) {
             sec_char = false;
@@ -248,21 +252,25 @@ public class Student {
         // ciclo per la lenght del nome, setto la booleana vocale a false come
         // semaforo, poi ciclo per quante sono le vocali e setto la booleana, se false
         // copio in array result
+
         while (res_name.size() < 3) {
             if (tentativi == 1) {
                 for (int i = 0; i < this.name.length(); i++) {
+
                     // se il res è = 3 allora break
                     if (res_name.size() == 3) {
                         break;
                     }
                     vocale = false;
                     for (int j = 0; j < vocali.length; j++) {
+
                         // comparo nome[i] e vocale[j]
                         if (nome_scomposto[i] == vocali[j]) {
                             vocale = true;
                             break;
                         }
                     }
+
                     // pusho il risultato
                     if (!vocale) {
                         if (res_name.size() == 1 && sec_char == true) {
@@ -274,22 +282,26 @@ public class Student {
                 }
             } else if (tentativi == 2) {
                 for (int i = 0; i < this.name.length(); i++) {
+
                     // se il res è = 3 allora break
                     if (res_name.size() == 3) {
                         break;
                     }
                     vocale = false;
                     for (int j = 0; j < vocali.length; j++) {
+
                         // comparo nome[i] e vocale[j]
                         if (nome_scomposto[i] == vocali[j]) {
                             vocale = true;
                         }
                     }
+
                     // pusho il risultato (stavolta solo se è vocale)
                     if (vocale) {
                         res_name.add(nome_scomposto[i]);
                     }
                 }
+
                 // riempio di x fino a 3
             } else if (tentativi == 3) {
                 while (res_name.size() < 3) {
