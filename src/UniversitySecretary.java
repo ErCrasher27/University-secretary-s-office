@@ -60,10 +60,10 @@ public class UniversitySecretary {
             } catch (Exception ex) {
                 System.out.println("Errore");
             }
-            System.out.println("Registrazione avvenuta con successo");
+            //System.out.println("Registrazione avvenuta con successo");
 
         } else {
-            System.out.println("già esiste");
+            //System.out.println("già esiste");
         }
 
 
@@ -92,14 +92,14 @@ public class UniversitySecretary {
         JSONObject jobj = new JSONObject();
         jobj.put("Username", s.getUsername());
         jobj.put("Password", s.getPassword());
+        s.encrypt((String) jobj.get("Password"));
 
         //declare result
         boolean matched = false;
 
         //loop to check validation
         for (int i = 0; i < jrr.size(); i++) {
-
-            if ((((JSONObject) jrr.get(i)).get("Username").equals(jobj.get("Username"))) && (((JSONObject) jrr.get(i)).get("Password").equals(jobj.get("Password")))) {
+            if ((((JSONObject) jrr.get(i)).get("Username").equals(jobj.get("Username"))) && (((JSONObject) jrr.get(i)).get("Password").equals((jobj.get("Password"))))) {
                 //get id and set it, than return matched true
                 Long id = (Long) ((JSONObject) jrr.get(i)).get("Id");
                 int id_convert = id.intValue();
@@ -181,5 +181,6 @@ public class UniversitySecretary {
         }
         JOptionPane.showMessageDialog(null, "Prenotazione avvenuta con successo!");
     }
+
 
 }

@@ -16,5 +16,59 @@
     "Nome": "francesco",
     "Cognome": "grauso",
     "Password": "dsa"
+  },
+  {
+    "Email": "francescos@live.it",
+    "CF": "GRSFNC02M27M225S",
+    "Username": "ErCrasher23",
+    "Id": 3,
+    "Nome": "Francesco",
+    "Cognome": "Grauso",
+    "Password": "a"
+  },
+  {
+    "Email": "fdshgdf@",
+    "CF": "GRSFNC04H04F839P",
+    "Username": "A",
+    "Id": 4,
+    "Nome": "Francesco",
+    "Cognome": "Grauso",
+    "Password": "A"
+  },
+  {
+    "Email": "peova@",
+    "CF": "PRVPRV02M27F923B",
+    "Username": "PA",
+    "Id": 5,
+    "Nome": "prova",
+    "Cognome": "prova",
+    "Password": "WwYAF1VoVi21uyVCsErCQw=="
+  },
+  {
+    "Email": "ASDOASO@",
+    "CF": "PRVPRV02H31F839P",
+    "Username": "DS",
+    "Id": 6,
+    "Nome": "prova",
+    "Cognome": "prova",
+    "Password": "MG3G8W4dAKk3Ekz1yz32Aw=="
+  },
+  {
+    "Email": "POV@",
+    "CF": "PRVPRV02H31U765U",
+    "Username": "POP",
+    "Id": 7,
+    "Nome": "PROVA",
+    "Cognome": "PROVA",
+    "Password": "69Z7zgMkcPs1Q8Acp8q\/5w=="
+  },
+  {
+    "Email": "vincenzo@",
+    "CF": "NGLVCN03H03F844P",
+    "Username": "Ciao",
+    "Id": 8,
+    "Nome": "Vincenzo",
+    "Cognome": "Angelino",
+    "Password": "SJSczRwYf1deoH4nqdTlBw=="
   }
 ]
