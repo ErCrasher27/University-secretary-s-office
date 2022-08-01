@@ -27,28 +27,46 @@ public class UniversitySecretary {
         }
 
         //adding student's stats to json object
-        jobj.put("Id", s.getId());
-        jobj.put("Nome", s.getName());
-        jobj.put("Cognome", s.getSurname());
+
         jobj.put("Username", s.getUsername());
-        jobj.put("Password", s.getPassword());
         jobj.put("Email", s.getEmail());
         jobj.put("CF", s.getCF());
-        jobj.put("Id", jrr.size() + 1);
 
 
-        //add jobj in jrr, now jrr has  all students + the last registration
-        jrr.add(jobj);
-
-        //write on json file adding jrr
-        try {
-            FileWriter file = new FileWriter("Students.json");
-            file.write(jrr.toJSONString());
-            file.close();
-        } catch (Exception ex) {
-            System.out.println("Errore");
+        //*****************************************//
+        //loop to check if email, cf or username already exists
+        boolean exist = false;
+        for (int i = 0; i < jrr.size(); i++) {
+            if ((((JSONObject) jrr.get(i)).get("Email").equals(jobj.get("Email")))
+                    || (((JSONObject) jrr.get(i)).get("CF").equals(jobj.get("CF")))
+                    || (((JSONObject) jrr.get(i)).get("Username").equals(jobj.get("Username")))) {
+                exist = true;
+            }
         }
-        System.out.println("Registrazione avvenuta con successo");
+
+        if (!exist) {
+            //add jobj in jrr, now jrr has  all students + the last registration
+            jobj.put("Nome", s.getName());
+            jobj.put("Cognome", s.getSurname());
+            jobj.put("Password", s.getPassword());
+            jobj.put("Id", jrr.size() + 1);
+            jrr.add(jobj);
+
+            //write on json file adding jrr
+            try {
+                FileWriter file = new FileWriter("Students.json");
+                file.write(jrr.toJSONString());
+                file.close();
+            } catch (Exception ex) {
+                System.out.println("Errore");
+            }
+            System.out.println("Registrazione avvenuta con successo");
+
+        } else {
+            System.out.println("già esiste");
+        }
+
+
     }
 
     //function that login student in json
