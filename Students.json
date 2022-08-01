@@ -1,0 +1,47 @@
+[
+  {
+    "Email": "francescograuso@live.it",
+    "CF": "GRSFNC02M27F839B",
+    "Username": "Era",
+    "Id": 1,
+    "Nome": "francesco",
+    "Cognome": "grauso",
+    "Password": "dsa"
+  },
+  {
+    "Email": "francescogDSrauso@live.it",
+    "CF": "GRSFNC02M27S839B",
+    "Username": "EraA",
+    "Id": 2,
+    "Nome": "francesco",
+    "Cognome": "grauso",
+    "Password": "dsa"
+  },
+  {
+    "Email": "n.piccirillo@netcomgroup.eu",
+    "CF": "PCCNCL04B02B963G",
+    "Username": "nick",
+    "Id": 3,
+    "Nome": "Nicola",
+    "Cognome": "Piccirillo",
+    "Password": "nick"
+  },
+  {
+    "Email": "vincenzo@gans",
+    "CF": "NGLVCN03H03N738L",
+    "Username": "VIN",
+    "Id": 4,
+    "Nome": "Vincenzo",
+    "Cognome": "Angelino",
+    "Password": "VIN"
+  },
+  {
+    "Email": "prova@hhh",
+    "CF": "PRVPRV12B32V856G",
+    "Username": "prova",
+    "Id": 5,
+    "Nome": "Prova",
+    "Cognome": "Prova",
+    "Password": "lUs8e2p9eY+XUh7bPTV8lg=="
+  }
+]
