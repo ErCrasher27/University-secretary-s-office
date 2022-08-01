@@ -27,13 +27,15 @@ public class UniversitySecretary {
         }
 
         //adding student's stats to json object
-        jobj.put("Id", "1");
+        jobj.put("Id", s.getId());
         jobj.put("Nome", s.getName());
         jobj.put("Cognome", s.getSurname());
         jobj.put("Username", s.getUsername());
         jobj.put("Password", s.getPassword());
         jobj.put("Email", s.getEmail());
         jobj.put("CF", s.getCF());
+        jobj.put("Id", jrr.size() + 1);
+
 
         //add jobj in jrr, now jrr has  all students + the last registration
         jrr.add(jobj);
@@ -81,8 +83,9 @@ public class UniversitySecretary {
 
             if ((((JSONObject) jrr.get(i)).get("Username").equals(jobj.get("Username"))) && (((JSONObject) jrr.get(i)).get("Password").equals(jobj.get("Password")))) {
                 //get id and set it, than return matched true
-                String id = (String) ((JSONObject) jrr.get(i)).get("Id");
-                s.setId(id);
+                Long id = (Long) ((JSONObject) jrr.get(i)).get("Id");
+                int id_convert = id.intValue();
+                s.setId(id_convert);
                 matched = true;
                 return matched;
             }
@@ -90,8 +93,6 @@ public class UniversitySecretary {
         //login failed, so return false
         return matched;
     }
-
-    //*******************************************************************************code here all fun for book*******************************************************************************
 
     //fun that check if booking exist
     public boolean checkBookingExist(String date) {
@@ -129,7 +130,7 @@ public class UniversitySecretary {
     }
 
     //function that save the booking
-    public void saveBooking(String date, String note, String id_studente) {
+    public void saveBooking(String date, String note, int id_studente) {
 
         //define json obj, array, parser
         JSONObject jobj = new JSONObject();
@@ -162,6 +163,5 @@ public class UniversitySecretary {
         }
         JOptionPane.showMessageDialog(null, "Prenotazione avvenuta con successo!");
     }
-
 
 }

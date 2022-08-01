@@ -20,7 +20,7 @@ public class FrameLogin {
     private static JTextField field_password;
 
     //id (like a session)
-    private static String id_studente = null;
+    private static int id_student = 0;
 
 
     public FrameLogin() {
@@ -291,8 +291,8 @@ public class FrameLogin {
         //login student
         UniversitySecretary us = new UniversitySecretary();
         if (us.loginStudent(s)) {
-            id_studente = s.getId();
-            FrameBooking f = new FrameBooking(id_studente);
+            id_student = s.getId();
+            FrameBooking f = new FrameBooking(id_student);
         } else {
             JOptionPane.showMessageDialog(null, "Email e/o Password errati");
         }
@@ -300,20 +300,39 @@ public class FrameLogin {
 
     //event that register student
     private static void buttonRegisterActionPerformed(ActionEvent evt) {
-
         //create student obj
         Student s = new Student();
-        s.setName(field_name.getText());
-        s.setSurname(field_surname.getText());
-        s.setEmail(field_email.getText());
-        s.setCF(field_cf.getText());
-        s.setUsername(field_username.getText());
-        s.setPassword(field_password.getText());
+        boolean empty = true;
+        if (!field_name.getText().isEmpty()
+                && !field_surname.getText().isEmpty()
+                && !field_email.getText().isEmpty()
+                && !field_cf.getText().isEmpty()
+                && !field_username.getText().isEmpty()
+                && !field_password.getText().isEmpty()) {
+            s.setName(field_name.getText());
+            s.setSurname(field_surname.getText());
+            s.setEmail(field_email.getText());
+            s.setCF(field_cf.getText());
+            s.setUsername(field_username.getText());
+            s.setPassword(field_password.getText());
+            empty = false;
+
+            //check validation email and cf (in case null empty == true)
+            if (s.getEmail() == null) {
+                empty = true;
+            }
+            if (s.getCF() == null) {
+                empty = true;
+            }
+        }
 
         //register student
-        UniversitySecretary us = new UniversitySecretary();
-        us.registerStudent(s);
-    }
+        if (!empty) {
+            UniversitySecretary us = new UniversitySecretary();
+            us.registerStudent(s);
+        } else
+            JOptionPane.showMessageDialog(null, "Alcuni campi sono vuoti");
 
+    }
 
 }

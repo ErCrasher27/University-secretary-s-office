@@ -1,38 +1,29 @@
 [
   {
     "Email": "francescograuso@live.it",
-    "CF": "GRSFNC02M27MB45B",
+    "CF": "GRSFNC02M27MB23B",
     "Username": "ErCrasher",
-    "Id": "1",
-    "Nome": "francesco",
-    "Cognome": "grauso",
+    "Id": 1,
+    "Nome": "Francesco",
+    "Cognome": "Grauso",
     "Password": "soloio"
   },
   {
-    "Email": "prova@gma",
-    "CF": "fsadas",
-    "Username": "123",
-    "Id": "2",
-    "Nome": "prova",
-    "Cognome": "prova",
-    "Password": "123"
+    "Email": "vincenzoangelini@live.it",
+    "CF": "GDSAHDGSYAUSDV2",
+    "Username": "SchifName",
+    "Id": 2,
+    "Nome": "Vincenzo",
+    "Cognome": "Angelino",
+    "Password": "solotu"
   },
   {
-    "Email": "aa@aa",
-    "CF": "aa",
-    "Username": "aa",
-    "Id": "1",
-    "Nome": "aa",
-    "Cognome": "aa",
-    "Password": "aa"
-  },
-  {
-    "Email": null,
-    "CF": "",
-    "Username": "",
-    "Id": "1",
-    "Nome": "",
-    "Cognome": "",
-    "Password": ""
+    "Email": "michele@",
+    "CF": "GRSFNCOSKTJFLGHW",
+    "Username": "ciao",
+    "Id": 3,
+    "Nome": "Michele",
+    "Cognome": "Borseggio",
+    "Password": "ciao12"
   }
 ]

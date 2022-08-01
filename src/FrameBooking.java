@@ -11,9 +11,9 @@ public class FrameBooking {
     private static JFrame frame;
     private static JFormattedTextField field_date;
     private static JTextField field_note;
-    private static String id_student = null;
+    private static int id_student = 0;
 
-    public FrameBooking(String id_studente) {
+    public FrameBooking(int id_studente) {
         this.id_student = id_studente;
 
         //declare and set panel properties (and add panel)
