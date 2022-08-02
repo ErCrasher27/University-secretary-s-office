@@ -186,6 +186,9 @@ public class UniversitySecretary {
             JOptionPane.showMessageDialog(null, "Error!");
         }
         JOptionPane.showMessageDialog(null, "Booking successfully made!");
+
+        //send email
+        String email = get_email_by_id(id_studente);
     }
 
     //fun that get booking by id
@@ -220,6 +223,35 @@ public class UniversitySecretary {
             }
         }
         return l;
+    }
+
+    //fun that get email by id
+    public String get_email_by_id(int id) {
+
+        //define json obj, array, parser
+        JSONObject jobj = new JSONObject();
+        JSONArray jrr = new JSONArray();
+        JSONParser jp = new JSONParser();
+
+        //read file to add content in jrr (from jp)
+        try {
+            FileReader file = new FileReader("Students.json");
+            jrr = (JSONArray) jp.parse(file);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error!");
+        }
+
+        //adding student's id to json object
+        jobj.put("Id", id);
+
+        //loop to check if id parse == id_student of booking
+        for (int i = 0; i < jrr.size(); i++) {
+            if (((JSONObject) jrr.get(i)).get("Id").toString().equals(jobj.get("Id").toString())) {
+                String email = ((JSONObject) jrr.get(i)).get("Email").toString();
+                return email;
+            }
+        }
+        return null;
     }
 
 }
