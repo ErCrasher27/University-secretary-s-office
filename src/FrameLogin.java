@@ -2,6 +2,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import javax.swing.text.PlainDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
 
 public class FrameLogin {
 
@@ -215,6 +218,9 @@ public class FrameLogin {
         field_cf = new JTextField();
         field_cf.setFont(new java.awt.Font("Times New Roman", 0, 24));
 
+        /*CustomizerJtextField class call for character limitation*/
+        field_cf.setDocument(new CustomizerJtextField(16));
+
         //declare and set text field username properties
         field_username = new JTextField();
         field_username.setFont(new java.awt.Font("Times New Roman", 0, 24));
@@ -347,4 +353,36 @@ public class FrameLogin {
         } else
             JOptionPane.showMessageDialog(null, "Some fields are empty");
     }
+
+    /*Character limitation class for jtextfields*/
+    public static class CustomizerJtextField extends PlainDocument {
+
+        private StringBuffer cache = new StringBuffer();
+        int lunghezzaMax;
+
+        public CustomizerJtextField(int lunghezzaMax){
+            this.lunghezzaMax = lunghezzaMax;
+        }
+
+        public void insertString(int off, String s, AttributeSet aset) throws BadLocationException{
+            int len = getLength();
+            if(len >= this.lunghezzaMax) {
+                return;
+            }
+            cache.setLength(0);
+            char c;
+            for(int i = 0; i < s.length(); i++) {
+                c = s.charAt(i);
+                cache.append(c);
+                if(cache.length() >= lunghezzaMax - len) {
+                    break;
+                }
+            }
+            if(cache.length() > 0) {
+                super.insertString( off, cache.toString(), aset);
+            }
+        }
+    }
+
+
 }
