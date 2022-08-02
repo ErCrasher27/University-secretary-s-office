@@ -221,7 +221,7 @@ public class UniversitySecretary {
 
 
             //non entra, anche se sono uguali, guarda i print sopra
-            if (((JSONObject) jrr.get(i)).get("Id_student") == jobj.get("Id_student")) {
+            if (((JSONObject) jrr.get(i)).get("Id_student").toString().equals(jobj.get("Id_student").toString() )) {
 
                 System.out.println("sono dentro");
 
