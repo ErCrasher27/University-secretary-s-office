@@ -8,6 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import javax.mail.MessagingException;
 import javax.swing.*;
 
 import static javax.swing.UIManager.get;
@@ -189,6 +190,11 @@ public class UniversitySecretary {
 
         //send email
         String email = get_email_by_id(id_studente);
+        try {
+            sendemail.Send(email, date, note);
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //fun that get booking by id

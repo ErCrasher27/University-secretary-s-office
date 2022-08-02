@@ -177,9 +177,10 @@ public class FrameBooking {
         JPanel pannello_book_manage = new JPanel(new GridLayout(3, 1));
         pannello_book_manage.setBackground(Color.getHSBColor(352, 90, 62));
         pannello_book_manage.setBorder(BorderFactory.createEmptyBorder(40, 10, 50, 10));
+        pannello_book_manage.add(list_booking);
         pannello_book_manage.add(button_menu);
         pannello_book_manage.setVisible(true);
-        pannello_book_manage.add(list_booking);
+
 
         //add to frame
         frame.add(pannello_book_manage);
