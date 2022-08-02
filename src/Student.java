@@ -57,8 +57,11 @@ public class Student {
     /*Creation of the procedure for the acquisition of the student’s email*/
     public void setEmail(String email) {
 
-        /*Checking for the @ in the email address. If it is present, its existence is verified*/
-        Pattern pattern = Pattern.compile("@", Pattern.CASE_INSENSITIVE);
+        //save regex that check too if email contain a dot
+        String regex = "[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}";
+
+        //set regex in a pattern
+        Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(email);
         boolean matchFound = matcher.find();
         if (matchFound) {
