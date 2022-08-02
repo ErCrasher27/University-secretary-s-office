@@ -1,6 +1,11 @@
 //move it
 public class Main {
+
     public static void main(String[] args) {
-        FrameLogin frame = new FrameLogin();
+
+        //************************* QUA ********************************
+        UniversitySecretary us = new UniversitySecretary();
+        us.get_booking(2);
+        //FrameLogin frame = new FrameLogin();
     }
 }

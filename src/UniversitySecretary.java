@@ -1,11 +1,16 @@
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import javax.swing.*;
+
+import static javax.swing.UIManager.get;
 
 public class UniversitySecretary {
 
@@ -181,6 +186,54 @@ public class UniversitySecretary {
             JOptionPane.showMessageDialog(null, "Error!");
         }
         JOptionPane.showMessageDialog(null, "Booking successfully made!");
+    }
+
+
+    //************************ QUA **************************//
+    //fun that get booking by id
+    public Object[] get_booking(int id) {
+        //prepare result
+        Object[] res_booking = null;
+
+        //define json obj, array, parser
+        JSONObject jobj = new JSONObject();
+        JSONArray jrr = new JSONArray();
+        JSONParser jp = new JSONParser();
+
+        //read file to add content in jrr (from jp)
+        try {
+            FileReader file = new FileReader("Booking.json");
+            jrr = (JSONArray) jp.parse(file);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Error!");
+        }
+
+        //adding student's id to json object
+        jobj.put("Id_student", id);
+
+        //*****************************************//
+        //loop to check if id parse == id_student of booking
+        for (int i = 0; i < jrr.size(); i++) {
+
+            //printo per vedere se so uguali (spoiler: lo sono)
+            System.out.println(jobj.get("Id_student"));
+            System.out.println(((JSONObject) jrr.get(i)).get("Id_student"));
+
+
+            //non entra, anche se sono uguali, guarda i print sopra
+            if (((JSONObject) jrr.get(i)).get("Id_student") == jobj.get("Id_student")) {
+
+                System.out.println("sono dentro");
+
+                res_booking[i] = (Object[]) jrr.get(i);
+
+            }
+        }
+        System.out.println("sono fuori");
+
+        System.out.println(res_booking);
+
+        return res_booking;
     }
 
 }
