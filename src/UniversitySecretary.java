@@ -188,12 +188,11 @@ public class UniversitySecretary {
         JOptionPane.showMessageDialog(null, "Booking successfully made!");
     }
 
-
-    //************************ QUA **************************//
     //fun that get booking by id
-    public Object[] get_booking(int id) {
+    public String get_booking(int id) {
+
         //prepare result
-        Object[] res_booking = null;
+        JSONArray res_booking = new JSONArray();
 
         //define json obj, array, parser
         JSONObject jobj = new JSONObject();
@@ -211,29 +210,17 @@ public class UniversitySecretary {
         //adding student's id to json object
         jobj.put("Id_student", id);
 
-        //*****************************************//
         //loop to check if id parse == id_student of booking
         for (int i = 0; i < jrr.size(); i++) {
 
-            //printo per vedere se so uguali (spoiler: lo sono)
-            System.out.println(jobj.get("Id_student"));
-            System.out.println(((JSONObject) jrr.get(i)).get("Id_student"));
-
-
             //non entra, anche se sono uguali, guarda i print sopra
-            if (((JSONObject) jrr.get(i)).get("Id_student").toString().equals(jobj.get("Id_student").toString() )) {
+            if (((JSONObject) jrr.get(i)).get("Id_student").toString().equals(jobj.get("Id_student").toString())) {
 
-                System.out.println("sono dentro");
-
-                res_booking[i] = (Object[]) jrr.get(i);
-
+                //copy in result
+                res_booking.add((JSONObject) jrr.get(i));
             }
         }
-        System.out.println("sono fuori");
-
-        System.out.println(res_booking);
-
-        return res_booking;
+        return "a";
     }
 
 }
