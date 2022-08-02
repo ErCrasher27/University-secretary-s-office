@@ -1,5 +1,7 @@
 //Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+
 import org.jdatepicker.JDatePicker;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -61,7 +63,7 @@ public class FrameBooking {
         //declare and set panel properties (and add components)
         JPanel pannello_menu = new JPanel(new GridLayout(3, 1));
         pannello_menu.setBackground(Color.getHSBColor(352, 90, 62));
-        pannello_menu.setBorder(BorderFactory.createEmptyBorder(40,10,50,10));
+        pannello_menu.setBorder(BorderFactory.createEmptyBorder(40, 10, 50, 10));
         pannello_menu.add(label_menu);
         pannello_menu.add(button_book_section);
         pannello_menu.add(button_manage_book_section);
@@ -69,7 +71,7 @@ public class FrameBooking {
 
         //add to frame
         frame.add(pannello_menu);
-        frame.setSize(400, 400);
+        frame.setSize(500, 500);
         frame.setVisible(true);
     }
 
@@ -128,7 +130,7 @@ public class FrameBooking {
         //declare and set panel properties (and add components)
         JPanel pannello_book = new JPanel(new GridLayout(3, 1));
         pannello_book.setBackground(Color.getHSBColor(352, 90, 62));
-        pannello_book.setBorder(BorderFactory.createEmptyBorder(40,10,50,10));
+        pannello_book.setBorder(BorderFactory.createEmptyBorder(40, 10, 50, 10));
         pannello_book.add(label_date);
         pannello_book.add(field_date);
         pannello_book.add(label_note);
@@ -139,7 +141,7 @@ public class FrameBooking {
 
         //add to frame
         frame.add(pannello_book);
-        frame.setSize(400, 400);
+        frame.setSize(500, 500);
         frame.setVisible(true);
     }
 
@@ -158,16 +160,30 @@ public class FrameBooking {
             }
         });
 
+        //declare list model
+        DefaultListModel<String> l = new DefaultListModel<>();
+
+        //create obj UniversitySecretary for use fun that get counter and read bookings of student (by id)
+        UniversitySecretary us = new UniversitySecretary();
+
+        //call function that add element in l
+        l = us.set_booking_to_list(id_student);
+
+        //declare JList and add list
+        JList<String> list_booking = new JList<>(l);
+        list_booking.setBounds(100, 100, 75, 75);
+
         //declare and set panel properties (and add components)
         JPanel pannello_book_manage = new JPanel(new GridLayout(3, 1));
         pannello_book_manage.setBackground(Color.getHSBColor(352, 90, 62));
-        pannello_book_manage.setBorder(BorderFactory.createEmptyBorder(40,10,50,10));
+        pannello_book_manage.setBorder(BorderFactory.createEmptyBorder(40, 10, 50, 10));
         pannello_book_manage.add(button_menu);
         pannello_book_manage.setVisible(true);
+        pannello_book_manage.add(list_booking);
 
         //add to frame
         frame.add(pannello_book_manage);
-        frame.setSize(400, 200);
+        frame.setSize(500, 500);
         frame.setVisible(true);
     }
 

@@ -189,10 +189,10 @@ public class UniversitySecretary {
     }
 
     //fun that get booking by id
-    public String get_booking(int id) {
+    public DefaultListModel<String> set_booking_to_list(int id) {
 
-        //prepare result
-        JSONArray res_booking = new JSONArray();
+        //define list model
+        DefaultListModel<String> l = new DefaultListModel<>();
 
         //define json obj, array, parser
         JSONObject jobj = new JSONObject();
@@ -212,15 +212,14 @@ public class UniversitySecretary {
 
         //loop to check if id parse == id_student of booking
         for (int i = 0; i < jrr.size(); i++) {
-
-            //non entra, anche se sono uguali, guarda i print sopra
             if (((JSONObject) jrr.get(i)).get("Id_student").toString().equals(jobj.get("Id_student").toString())) {
 
-                //copy in result
-                res_booking.add((JSONObject) jrr.get(i));
+                //prepare row and add in l
+                String row = "DATA: " + ((JSONObject) jrr.get(i)).get("Data").toString() + "   NOTE: " + ((JSONObject) jrr.get(i)).get("Note").toString();
+                l.addElement(row);
             }
         }
-        return "a";
+        return l;
     }
 
 }
