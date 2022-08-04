@@ -1,4 +1,6 @@
 /*Class Students containing all functions for operations on student data*/
+import API.*;
+
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,9 @@ public class Student {
     }
 
     /*Creation of the procedure for the acquisition of the student’s password*/
-    public void setPassword(String password) { String enc_pw = encrypt(password); this.password = enc_pw;
+    public void setPassword(String password) {
+        String enc_pw = encrypt(password);
+        this.password = enc_pw;
     }
 
     /*Creation of function for visualization of the student’s password*/
@@ -81,13 +85,7 @@ public class Student {
 
         //check if length is right
         if (cf.length() == 16) {
-
-            //check if pattern is right
-            Pattern pattern = Pattern.compile("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$", Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(cf);
-            boolean matchFound = matcher.find();
-            if (matchFound) {
-
+            if (callApi.cfApi(cf)) {
                 //check if name and surname are right for CF
 
                 // calculate surname and name cf
@@ -109,9 +107,7 @@ public class Student {
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid tax code by first and last name");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Tax code format not valid");
-            }
+            } else JOptionPane.showMessageDialog(null, "The tax code is not valid");
         } else {
             JOptionPane.showMessageDialog(null, "The number of characters of the tax code must be equal to 16");
         }
@@ -134,6 +130,51 @@ public class Student {
         return this.id;
     }
 
+    //fun that encrypt pw
+    public String encrypt(String pw) {
+        String key = "Uso12345Uso12345";
+        String pass = null;
+        try {
+
+            // Create key and cipher
+            Key aesKey = new SecretKeySpec(key.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+
+            // encrypt
+            cipher.init(Cipher.ENCRYPT_MODE, aesKey);
+            byte[] encrypted = cipher.doFinal(pw.getBytes());
+
+            //reconvert to string
+            pass = Base64.getEncoder().encodeToString(encrypted);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return pass;
+    }
+
+    //fun that decrypt pw
+    /*public String decrypt(String pw) {
+        String key = "Uso12345Uso12345";
+        String pass = null;
+        try
+        {
+            byte[] encrypted = Base64.getDecoder().decode(pw);
+            // Create key and cipher
+            Key aesKey = new SecretKeySpec(key.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            // decrypt
+            cipher.init(Cipher.DECRYPT_MODE, aesKey);
+            String decrypted = new String(cipher.doFinal(encrypted));
+            pass = decrypted;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return  pass;
+    }*/
+
+
     public List<Character> surname_cf() {
 
         // declare list result
@@ -144,7 +185,7 @@ public class Student {
         int tentativi = 1;
 
         // declare voice arrays
-        char[] vocali = {'a', 'e', 'i', 'o', 'u','A', 'E', 'I', 'O', 'U'};
+        char[] vocali = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
 
         // decompose the surname in array char
         char[] cognome_scomposto = new char[this.surname.length()];
@@ -226,7 +267,7 @@ public class Student {
         boolean sec_char = true;
 
         // declare the voice arrays
-        char[] vocali = {'a', 'e', 'i', 'o', 'u','A', 'E', 'I', 'O', 'U'};
+        char[] vocali = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
 
         // decompose the name in array char
         char[] nome_scomposto = new char[this.name.length()];
@@ -241,7 +282,7 @@ public class Student {
         int count_consonanti = 0;
         for (int i = 0; i < this.name.length(); i++) {
             char ch = this.name.charAt(i);
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'|| ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
                 System.out.print("");
             } else if (ch != ' ') {
                 count_consonanti += 1;
@@ -315,49 +356,4 @@ public class Student {
         }
         return res_name;
     }
-
-    //fun that encrypt pw
-    public String encrypt(String pw) {
-        String key = "Uso12345Uso12345";
-        String pass = null;
-        try {
-
-            // Create key and cipher
-            Key aesKey = new SecretKeySpec(key.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES");
-
-            // encrypt
-            cipher.init(Cipher.ENCRYPT_MODE, aesKey);
-            byte[] encrypted = cipher.doFinal(pw.getBytes());
-
-            //reconvert to string
-            pass = Base64.getEncoder().encodeToString(encrypted);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return pass;
-    }
-
-    //fun that decrypt pw
-    /*public String decrypt(String pw) {
-        String key = "Uso12345Uso12345";
-        String pass = null;
-        try
-        {
-            byte[] encrypted = Base64.getDecoder().decode(pw);
-            // Create key and cipher
-            Key aesKey = new SecretKeySpec(key.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES");
-            // decrypt
-            cipher.init(Cipher.DECRYPT_MODE, aesKey);
-            String decrypted = new String(cipher.doFinal(encrypted));
-            pass = decrypted;
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        return  pass;
-    }*/
-
 }
