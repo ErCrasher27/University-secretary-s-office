@@ -74,6 +74,7 @@ public class FrameLogin {
         JPanel pannello_menu = new JPanel(new GridLayout(3, 1));
         pannello_menu.setBackground(Color.getHSBColor(352, 90, 62));
         pannello_menu.setBorder(BorderFactory.createEmptyBorder(40,10,50,10));
+
         pannello_menu.add(label_menu);
         pannello_menu.add(button_login_section);
         pannello_menu.add(button_register_section);
@@ -383,6 +384,4 @@ public class FrameLogin {
             }
         }
     }
-
-
 }
