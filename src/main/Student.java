@@ -1,13 +1,14 @@
-/*Class Students containing all functions for operations on student data*/
+package main;/*Class Students containing all functions for operations on student data*/
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 import javax.swing.*;
+import java.security.Key;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.crypto.spec.SecretKeySpec;
-import java.util.Base64;
-import java.security.Key;
-import javax.crypto.Cipher;
 
 /*Creation of the class Students*/
 public class Student {

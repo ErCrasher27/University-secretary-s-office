@@ -1,13 +1,10 @@
-//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
-
-import org.jdatepicker.JDatePicker;
+package main;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class FrameBooking {

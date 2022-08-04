@@ -1,10 +1,11 @@
-//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+package main;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import javax.swing.text.PlainDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class FrameLogin {
 

@@ -1,3 +1,5 @@
+package main;
+
 //move it
 public class Main {
 

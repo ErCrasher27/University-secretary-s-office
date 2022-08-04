@@ -1,8 +1,4 @@
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+package main;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -10,8 +6,8 @@ import org.json.simple.parser.JSONParser;
 
 import javax.mail.MessagingException;
 import javax.swing.*;
-
-import static javax.swing.UIManager.get;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 public class UniversitySecretary {
 
@@ -102,6 +98,7 @@ public class UniversitySecretary {
         //declare result
         boolean matched = false;
 
+        // CV --- Use a Map to avoid unuseless Loop
         //loop to check validation
         for (int i = 0; i < jrr.size(); i++) {
 
