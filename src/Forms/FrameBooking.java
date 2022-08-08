@@ -1,6 +1,7 @@
 package Forms;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
 
-import main.UniversitySecretary;
+import UniversitySecretaryTools.Booking;
+import UniversitySecretaryTools.Student;
 
 import javax.swing.*;
 import java.awt.*;
@@ -163,10 +164,10 @@ public class FrameBooking {
         DefaultListModel<String> l = new DefaultListModel<>();
 
         //create obj UniversitySecretary for use fun that get counter and read bookings of student (by id)
-        UniversitySecretary us = new UniversitySecretary();
+        Booking b = new Booking();
 
         //call function that add element in l
-        l = us.set_booking_to_list(id_student);
+        l = b.set_booking_to_list(id_student);
 
         //declare JList and add list
         JList<String> list_booking = new JList<>(l);
@@ -214,13 +215,13 @@ public class FrameBooking {
     private static void buttonBookActionPerformed(ActionEvent evt) {
 
         //create us obj
-        UniversitySecretary us = new UniversitySecretary();
+        Booking b = new Booking();
 
         //check if booking exist already
-        if (!us.checkBookingExist(field_date.getText())) {
+        if (!b.checkBookingExist(field_date.getText())) {
 
             //call save booking fun parsing fields and is_student
-            us.saveBooking(field_date.getText(), field_note.getText(), id_student);
+            b.saveBooking(field_date.getText(), field_note.getText(), id_student);
         } else {
             JOptionPane.showMessageDialog(null, "Already booked, try again with another time combination!");
         }
