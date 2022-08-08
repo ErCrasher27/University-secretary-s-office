@@ -2,13 +2,13 @@ package Forms;
 
 import javax.swing.*;
 
-public class FormLogin {
+public class FormRegister {
     private JPanel mainPanel;
 
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.setContentPane(new FormLogin().mainPanel);
+        frame.setContentPane(new FormRegister().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(600, 600);

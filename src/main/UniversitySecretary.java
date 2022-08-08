@@ -8,6 +8,8 @@ import javax.mail.MessagingException;
 import javax.swing.*;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UniversitySecretary {
 
