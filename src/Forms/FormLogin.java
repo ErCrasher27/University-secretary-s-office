@@ -11,8 +11,11 @@ public class FormLogin {
     private JLabel passwordLabel;
     private JPanel usernamePanel;
     private JPanel passwordPanel;
-    private JPanel bottonPanel;
+    private JPanel buttonPanel;
     private JPasswordField passwordField;
+    private JLabel notRegisteredYetLabel;
+    private JButton signInButton;
+    private JPanel registerPanel;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
