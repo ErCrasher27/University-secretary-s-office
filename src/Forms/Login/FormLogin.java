@@ -1,4 +1,4 @@
-package Forms;
+package Forms.Login;
 
 import javax.swing.*;
 
@@ -16,6 +16,8 @@ public class FormLogin {
     private JLabel notRegisteredYetLabel;
     private JButton signInButton;
     private JPanel registerPanel;
+    private JLabel universityLabel;
+    private JLabel secretaryLabel;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("University Secretary");
