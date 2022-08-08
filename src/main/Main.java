@@ -1,5 +1,7 @@
 package main;
 
+import Forms.FrameLogin;
+
 //move it
 public class Main {
 

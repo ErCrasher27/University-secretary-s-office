@@ -1,4 +1,4 @@
-package main;
+package UniversitySecretaryTools;
 
 import java.util.Properties;
 import java.util.logging.Level;
@@ -8,7 +8,7 @@ import javax.mail.PasswordAuthentication;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class sendemail {
+public class Email {
 
     public static void Send(String recepient, String date, String note) throws MessagingException {
         Properties properties = new Properties();
@@ -40,7 +40,7 @@ public class sendemail {
                 message.setText("Hey there your booking for the date: "+date+" with the note: "+note+" has been successfull");
                 return message;
         }catch (Exception ex){
-            Logger.getLogger(sendemail.class.getName()).log(Level.SEVERE , null, ex);
+            Logger.getLogger(Email.class.getName()).log(Level.SEVERE , null, ex);
         }
         return null;
     }

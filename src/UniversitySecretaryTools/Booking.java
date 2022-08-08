@@ -1,4 +1,6 @@
-package main;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+package UniversitySecretaryTools;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+
+import main.UniversitySecretary;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,13 +9,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class FrameBooking {
+public class Booking {
     private static JFrame frame;
     private static JFormattedTextField field_date;
     private static JTextField field_note;
     private static int id_student = 0;
 
-    public FrameBooking(int id_studente) {
+    public Booking(int id_studente) {
         this.id_student = id_studente;
 
         //declare and set panel properties (and add panel)
@@ -31,28 +33,28 @@ public class FrameBooking {
 
         //declare and set title menu properties
         JLabel label_menu = new JLabel();
-        label_menu.setFont(new java.awt.Font("Tahoma", 0, 36));
-        label_menu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_menu.setFont(new Font("Tahoma", 0, 36));
+        label_menu.setHorizontalAlignment(SwingConstants.CENTER);
         label_menu.setText("Booking");
 
         //declare and set button book section properties and event
         JButton button_book_section = new JButton();
-        button_book_section.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_book_section.setFont(new Font("Tahoma", 0, 24));
         button_book_section.setText("Make a reservation");
         button_book_section.setBackground(Color.getHSBColor(35, 90, 100));
         button_book_section.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 buttonBookSectionActionPerformed(evt);
             }
         });
 
         //declare and set button manage book section properties and event
         JButton button_manage_book_section = new JButton();
-        button_manage_book_section.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_manage_book_section.setFont(new Font("Tahoma", 0, 24));
         button_manage_book_section.setText("Manage Bookings");
         button_manage_book_section.setBackground(Color.getHSBColor(35, 90, 100));
         button_manage_book_section.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 buttonManageBookSectionActionPerformed(evt);
             }
         });
@@ -78,19 +80,19 @@ public class FrameBooking {
 
         //declare and set label_date properties
         JLabel label_date = new JLabel();
-        label_date.setFont(new java.awt.Font("Tahoma", 0, 36));
-        label_date.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_date.setFont(new Font("Tahoma", 0, 36));
+        label_date.setHorizontalAlignment(SwingConstants.CENTER);
         label_date.setText("Date");
 
         //declare and set label_note properties
         JLabel label_note = new JLabel();
-        label_note.setFont(new java.awt.Font("Tahoma", 0, 24));
-        label_note.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label_note.setFont(new Font("Tahoma", 0, 24));
+        label_note.setHorizontalAlignment(SwingConstants.CENTER);
         label_note.setText("Note");
 
         //declare and set text field note
         field_note = new JTextField();
-        field_note.setFont(new java.awt.Font("Tahoma", 0, 24));
+        field_note.setFont(new Font("Tahoma", 0, 24));
 
         //declare and set text field date properties
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -99,26 +101,26 @@ public class FrameBooking {
 
         //declare and set text field date properties
         field_note = new JTextField();
-        field_note.setFont(new java.awt.Font("Tahoma", 0, 24));
+        field_note.setFont(new Font("Tahoma", 0, 24));
 
         //declare and set button book properties and event
         JButton button_menu = new JButton();
-        button_menu.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_menu.setFont(new Font("Tahoma", 0, 24));
         button_menu.setText("<- Back to menu");
         button_menu.setBackground(Color.getHSBColor(35, 90, 100));
         button_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 buttonMenuActionPerformed(evt);
             }
         });
 
         //declare and set button book properties and event
         JButton button_book = new JButton();
-        button_book.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_book.setFont(new Font("Tahoma", 0, 24));
         button_book.setText("Book");
         button_book.setBackground(Color.getHSBColor(35, 90, 100));
         button_book.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 buttonBookActionPerformed(evt);
             }
         });
@@ -148,11 +150,11 @@ public class FrameBooking {
 
         //declare and set button menu properties and event
         JButton button_menu = new JButton();
-        button_menu.setFont(new java.awt.Font("Tahoma", 0, 24));
+        button_menu.setFont(new Font("Tahoma", 0, 24));
         button_menu.setText("<- Back to menu");
         button_menu.setBackground(Color.getHSBColor(35, 90, 100));
         button_menu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            public void actionPerformed(ActionEvent evt) {
                 buttonMenuActionPerformed(evt);
             }
         });
@@ -194,7 +196,7 @@ public class FrameBooking {
     //-----------------------------------------functions events-----------------------------------------
 
     //tp to menu page
-    private static void buttonMenuActionPerformed(java.awt.event.ActionEvent evt) {
+    private static void buttonMenuActionPerformed(ActionEvent evt) {
         menu();
     }
 

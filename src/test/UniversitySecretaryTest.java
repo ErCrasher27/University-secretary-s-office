@@ -1,6 +1,6 @@
 package test;
 
-import main.Student;
+import UniversitySecretaryTools.Student;
 import main.UniversitySecretary;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

@@ -1,4 +1,7 @@
-package main;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+package Forms;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+
+import UniversitySecretaryTools.Student;
+import main.UniversitySecretary;
 
 import javax.swing.*;
 import javax.swing.text.AttributeSet;

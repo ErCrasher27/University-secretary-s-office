@@ -1,5 +1,7 @@
 package main;
 
+import UniversitySecretaryTools.Student;
+import UniversitySecretaryTools.Email;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -188,7 +190,7 @@ public class UniversitySecretary {
         //send email
         String email = get_email_by_id(id_studente);
         try {
-            sendemail.Send(email, date, note);
+            Email.Send(email, date, note);
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
