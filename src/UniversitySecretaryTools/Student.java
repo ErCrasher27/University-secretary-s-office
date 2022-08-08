@@ -79,45 +79,9 @@ public class Student {
 
     /*Creation of the procedure for the acquisition of the student’s CF*/
     public void setCF(String cf) {
-
-        //check if length is right
-        if (cf.length() == 16) {
-
-            //check if pattern is right
-            Pattern pattern = Pattern.compile("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$", Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(cf);
-            boolean matchFound = matcher.find();
-            if (matchFound) {
-
-                //check if name and surname are right for CF
-
-                // calculate surname and name cf
-                List<Character> surname_cf_list = surname_cf();
-                List<Character> name_cf_list = name_cf();
-
-                // convert in string
-                String surname_cf_string = surname_cf_list.toString()
-                        .substring(1, 3 * surname_cf_list.size() - 1)
-                        .replaceAll(", ", "");
-                String name_cf_string = name_cf_list.toString()
-                        .substring(1, 3 * name_cf_list.size() - 1)
-                        .replaceAll(", ", "");
-
-                String surname_name_cf = surname_cf_string + name_cf_string;
-
-                if (surname_name_cf.toUpperCase().equals(cf.substring(0, 6).toUpperCase())) {
-                    this.cf = cf;
-                } else {
-                    JOptionPane.showMessageDialog(null, "Invalid tax code by first and last name");
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Tax code format not valid");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "The number of characters of the tax code must be equal to 16");
-        }
-
-
+        TaxCode t = new TaxCode();
+        boolean exist=t.check(cf, getSurname(), getName());
+        if (exist)this.cf = cf;
     }
 
     /*Creation of function for visualization of the student’s CF*/

@@ -8,22 +8,17 @@ import java.util.regex.Pattern;
 
 public class TaxCode {
 
-    public void checkPattern(String cf) {
+    public boolean check(String cf, String surname, String name) {
 
+        boolean exist;
         //check if length is right
         if (cf.length() == 16) {
-
-            //check if pattern is right
-            Pattern pattern = Pattern.compile("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$", Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(cf);
-            boolean matchFound = matcher.find();
-            if (matchFound) {
-
+            if (callApi.cfApi(cf)) {
                 //check if name and surname are right for CF
 
                 // calculate surname and name cf
-                List<Character> surname_cf_list = surname_cf();
-                List<Character> name_cf_list = name_cf();
+                List<Character> surname_cf_list = surname_cf(surname);
+                List<Character> name_cf_list = name_cf(name);
 
                 // convert in string
                 String surname_cf_string = surname_cf_list.toString()
@@ -36,20 +31,18 @@ public class TaxCode {
                 String surname_name_cf = surname_cf_string + name_cf_string;
 
                 if (surname_name_cf.toUpperCase().equals(cf.substring(0, 6).toUpperCase())) {
-                    this.cf = cf;
+                    Student s = new Student();
+                    return exist = true;
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid tax code by first and last name");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Tax code format not valid");
-            }
+            } else JOptionPane.showMessageDialog(null, "The tax code is not valid");
         } else {
             JOptionPane.showMessageDialog(null, "The number of characters of the tax code must be equal to 16");
         }
-
-
+        return exist = false;
     }
-    public List<Character> surname_cf() {
+    public List<Character> surname_cf(String surname) {
 
         // declare list result
         List<Character> res_surname = new ArrayList<Character>();
@@ -62,11 +55,11 @@ public class TaxCode {
         char[] vocali = {'a', 'e', 'i', 'o', 'u','A', 'E', 'I', 'O', 'U'};
 
         // decompose the surname in array char
-        char[] cognome_scomposto = new char[this.surname.length()];
+        char[] cognome_scomposto = new char[surname.length()];
 
         // copying array in full name_decomposed
-        for (int i = 0; i < this.surname.length(); i++) {
-            cognome_scomposto[i] = this.surname.charAt(i);
+        for (int i = 0; i < surname.length(); i++) {
+            cognome_scomposto[i] = surname.charAt(i);
         }
 
         // loop for the lenght of the surname, set the vocal boolean to false as
@@ -75,7 +68,7 @@ public class TaxCode {
 
         while (res_surname.size() < 3) {
             if (tentativi == 1) {
-                for (int i = 0; i < this.surname.length(); i++) {
+                for (int i = 0; i < surname.length(); i++) {
 
                     // x fill up to 3
                     if (res_surname.size() == 3) {
@@ -97,7 +90,7 @@ public class TaxCode {
                     }
                 }
             } else if (tentativi == 2) {
-                for (int i = 0; i < this.surname.length(); i++) {
+                for (int i = 0; i < surname.length(); i++) {
 
                     // if the res is = 3
                     if (res_surname.size() == 3) {
@@ -131,7 +124,7 @@ public class TaxCode {
         return res_surname;
     }
 
-    public List<Character> name_cf() {
+    public List<Character> name_cf(String name) {
         // declare list result
         List<Character> res_name = new ArrayList<Character>();
 
@@ -144,18 +137,18 @@ public class TaxCode {
         char[] vocali = {'a', 'e', 'i', 'o', 'u','A', 'E', 'I', 'O', 'U'};
 
         // decompose the name in array char
-        char[] nome_scomposto = new char[this.name.length()];
+        char[] nome_scomposto = new char[name.length()];
 
         // copy array in name
-        for (int i = 0; i < this.name.length(); i++) {
-            nome_scomposto[i] = this.name.charAt(i);
+        for (int i = 0; i < name.length(); i++) {
+            nome_scomposto[i] = name.charAt(i);
         }
 
         // count consonants to check whether or not to skip the second consonant
         // (only if less than 4 consonants)
         int count_consonanti = 0;
-        for (int i = 0; i < this.name.length(); i++) {
-            char ch = this.name.charAt(i);
+        for (int i = 0; i < name.length(); i++) {
+            char ch = name.charAt(i);
             if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'|| ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
                 System.out.print("");
             } else if (ch != ' ') {
@@ -173,7 +166,7 @@ public class TaxCode {
         // script in array result
         while (res_name.size() < 3) {
             if (tentativi == 1) {
-                for (int i = 0; i < this.name.length(); i++) {
+                for (int i = 0; i < name.length(); i++) {
 
                     //  x fill up to 3
                     if (res_name.size() == 3) {
@@ -199,7 +192,7 @@ public class TaxCode {
                     }
                 }
             } else if (tentativi == 2) {
-                for (int i = 0; i < this.name.length(); i++) {
+                for (int i = 0; i < name.length(); i++) {
 
                     //  x fill up to 3
                     if (res_name.size() == 3) {
