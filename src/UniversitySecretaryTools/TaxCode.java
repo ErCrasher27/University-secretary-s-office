@@ -8,7 +8,9 @@ import java.util.regex.Pattern;
 
 public class TaxCode {
 
-    public boolean check(String cf, String surname, String name) {
+
+    //VALIDATION OF THE TAX CODE AND CHECK IF IT EXIXST
+    public boolean check(String cf, String surname, String name) { //This method its called in the class Student.java in setCf
 
         boolean exist;
         //check if length is right
@@ -31,8 +33,7 @@ public class TaxCode {
                 String surname_name_cf = surname_cf_string + name_cf_string;
 
                 if (surname_name_cf.toUpperCase().equals(cf.substring(0, 6).toUpperCase())) {
-                    Student s = new Student();
-                    return exist = true;
+                    return exist = true;//Its true so the cf exist
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid tax code by first and last name");
                 }
@@ -40,8 +41,12 @@ public class TaxCode {
         } else {
             JOptionPane.showMessageDialog(null, "The number of characters of the tax code must be equal to 16");
         }
-        return exist = false;
+        return exist = false;//Its false so the cf doesn't exist
     }
+
+
+
+    //CHECK FOR THE 3 LETTERS OF THE SURNAME
     public List<Character> surname_cf(String surname) {
 
         // declare list result
@@ -124,6 +129,10 @@ public class TaxCode {
         return res_surname;
     }
 
+
+
+
+    //CHECK FOR THE 3 LETTERS OF THE NAME
     public List<Character> name_cf(String name) {
         // declare list result
         List<Character> res_name = new ArrayList<Character>();

@@ -77,6 +77,8 @@ public class Student {
         return this.email;
     }
 
+
+    //CALL TO THE CHECK METHOD IN THE TAX CODE CLASS FOR THE CF
     /*Creation of the procedure for the acquisition of the student’s CF*/
     public void setCF(String cf) {
         TaxCode t = new TaxCode();
