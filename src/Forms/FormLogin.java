@@ -18,7 +18,7 @@ public class FormLogin {
     private JPanel registerPanel;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("University Secretary");
         frame.setContentPane(new FormLogin().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
