@@ -1,6 +1,10 @@
 package Forms.Login;
 
+import Forms.Register.*;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class FormLogin {
     private JPanel mainPanel;
@@ -19,12 +23,22 @@ public class FormLogin {
     private JLabel universityLabel;
     private JLabel secretaryLabel;
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("University Secretary");
+    public FormLogin() {
+        signInButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FormRegister fr = new FormRegister();
+                fr.init();
+            }
+        });
+    }
+
+    public void init() {
+        JFrame frame = new JFrame("University Secretary - Login");
         frame.setContentPane(new FormLogin().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-        frame.setSize(600, 600);
+        frame.setSize(650, 850);
         frame.setVisible(true);
     }
 }

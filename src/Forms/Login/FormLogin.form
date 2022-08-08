@@ -41,7 +41,7 @@
                 <properties>
                   <font name="Arial" size="16" style="1"/>
                   <foreground color="-1680305"/>
-                  <icon value="Forms/iconsLogin/icons8-nome-utente-35.png"/>
+                  <icon value="Forms/icons/icons8-nome-utente-35.png"/>
                   <iconTextGap value="6"/>
                   <labelFor value="f7725"/>
                   <text value="Username"/>
@@ -95,7 +95,7 @@
                 <properties>
                   <font name="Arial" size="16" style="1"/>
                   <foreground color="-1680305"/>
-                  <icon value="Forms/iconsLogin/icons8-password-35.png"/>
+                  <icon value="Forms/icons/icons8-password-35.png"/>
                   <iconTextGap value="6"/>
                   <text value="Password"/>
                 </properties>
@@ -115,7 +115,7 @@
                   <background color="-13473911"/>
                   <caretColor color="-1446158"/>
                   <disabledTextColor color="-1446158"/>
-                  <font name="Arial" size="20" style="1"/>
+                  <font name="Arial" size="20" style="0"/>
                   <foreground color="-1446158"/>
                   <selectedTextColor color="-1446158"/>
                   <selectionColor color="-1680305"/>
@@ -132,7 +132,9 @@
             <properties>
               <background color="-1446158"/>
             </properties>
-            <border type="none"/>
+            <border type="none">
+              <title-color color="-5524801"/>
+            </border>
             <children>
               <component id="133f4" class="javax.swing.JButton" binding="LOGINButton" default-binding="true">
                 <constraints>
