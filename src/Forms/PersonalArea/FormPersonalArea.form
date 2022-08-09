@@ -70,6 +70,17 @@
           </component>
         </children>
       </grid>
+      <component id="9947b" class="javax.swing.JLabel" binding="secretaryLabel">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-14605052"/>
+          <font name="Arial Black" size="36" style="1"/>
+          <foreground color="-1680305"/>
+          <text value="Secretary"/>
+        </properties>
+      </component>
       <component id="87ccf" class="javax.swing.JLabel" binding="universityLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
@@ -81,17 +92,6 @@
           <horizontalAlignment value="4"/>
           <horizontalTextPosition value="0"/>
           <text value="University"/>
-        </properties>
-      </component>
-      <component id="9947b" class="javax.swing.JLabel" binding="secretaryLabel">
-        <constraints>
-          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <background color="-14605052"/>
-          <font name="Arial Black" size="36" style="1"/>
-          <foreground color="-1680305"/>
-          <text value="Secretary"/>
         </properties>
       </component>
     </children>
