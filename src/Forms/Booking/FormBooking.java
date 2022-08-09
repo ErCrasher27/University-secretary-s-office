@@ -5,6 +5,8 @@ import Forms.PersonalArea.FormPersonalArea;
 import UniversitySecretaryTools.Booking;
 
 import javax.swing.*;
+import javax.swing.text.DateFormatter;
+import javax.swing.text.DefaultFormatterFactory;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -55,9 +57,12 @@ public class FormBooking {
             public void componentResized(ComponentEvent e) {
                 super.componentResized(e);
                 //declare and set text field date properties
-                DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                //dataTextField = new JFormattedTextField(format);
-                dataTextField.setFormatterFactory(tf);
+
+
+                //declare and set text field date properties
+                DateFormatter format = new DateFormatter(new SimpleDateFormat("dd/MM/yyyy HH:mm"));
+                DefaultFormatterFactory ddf = new DefaultFormatterFactory(format);
+                dataTextField.setFormatterFactory(ddf);
                 dataTextField.setValue(new Date());
             }
         });
