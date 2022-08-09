@@ -58,9 +58,6 @@ public class FormBooking {
             public void componentResized(ComponentEvent e) {
                 super.componentResized(e);
                 //declare and set text field date properties
-
-
-                //declare and set text field date properties
                 DateFormatter format = new DateFormatter(new SimpleDateFormat("dd/MM/yyyy HH:mm"));
                 DefaultFormatterFactory ddf = new DefaultFormatterFactory(format);
                 dataTextField.setFormatterFactory(ddf);

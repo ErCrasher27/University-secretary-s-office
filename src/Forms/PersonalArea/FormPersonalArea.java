@@ -3,6 +3,7 @@ package Forms.PersonalArea;
 
 import Forms.Booking.*;
 import Forms.Login.FormLogin;
+import Forms.ViewBooking.FormView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,7 +35,9 @@ public class FormPersonalArea {
         yourBookingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("VIEW YOUR RESERVATIONS");
+                FormView fv = new FormView();
+                fv.init(idStudent);
+                frame.dispose();
             }
         });
 
