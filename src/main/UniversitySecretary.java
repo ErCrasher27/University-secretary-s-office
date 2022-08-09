@@ -85,6 +85,7 @@ public class UniversitySecretary {
             FileReader file = new FileReader("Students.json");
             obj = Jp.parse(file);
             jrr = (JSONArray) obj;
+
             file.close();
         } catch (
                 Exception ex) {
@@ -101,6 +102,8 @@ public class UniversitySecretary {
         boolean matched = false;
 
         // CV --- Use a Map to avoid unuseless Loop
+
+
         //loop to check validation
         for (int i = 0; i < jrr.size(); i++) {
 
