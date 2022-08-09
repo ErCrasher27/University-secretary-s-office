@@ -12,22 +12,22 @@ public class FormPersonalArea {
     private JPanel personalPanel;
     private JPanel buttonPanel;
     private JButton makeAReservationButton;
-    private JButton manageBookingsButton;
+    private JButton yourBookingsButton;
     private JLabel universityLabel;
     private JLabel secretaryLabel;
     private JButton doneButton;
+    private static int idStudent = 0;
 
     public FormPersonalArea() {
         makeAReservationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("GO TO BOOKING AREA");
                 FormBooking fl = new FormBooking();
-                fl.init();
+                fl.init(idStudent);
             }
         });
 
-        manageBookingsButton.addActionListener(new ActionListener() {
+        yourBookingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("VIEW YOUR RESERVATIONS");
@@ -36,7 +36,8 @@ public class FormPersonalArea {
 
     }
 
-    public  void init() {
+    public  void init(int idStudent) {
+        this.idStudent = idStudent;
         JFrame frame = new JFrame("University Secretary - Personal Area");
         frame.setContentPane(new FormPersonalArea().mainPanel);
         frame.setTitle("Personal Area");

@@ -2,6 +2,7 @@
 package Forms.Booking;
 
 import Forms.PersonalArea.*;
+import UniversitySecretaryTools.Booking;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -20,19 +21,23 @@ public class FormBooking {
     private JLabel secretaryLabel;
     private JFormattedTextField dataTextField;
     private JPanel buttonPanel;
+    private static int idStudent = 0;
 
     public FormBooking() {
         bookButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("BOOKING MADE");
-                FormPersonalArea fr = new FormPersonalArea();
-                fr.init();
+                Booking b = new Booking();
+                if(b.checkBookingExist(dataTextField.getText())){
+
+                    b.saveBooking(dataTextField.getText(), notetextArea.getText(), idStudent);
+                }
             }
         });
     }
 
-    public  void init() {
+    public  void init(int idStudent) {
+        this.idStudent = idStudent;
         JFrame frame = new JFrame("University Secretary - Make a reservation");
         frame.setContentPane(new FormBooking().mainPanel);
         frame.setTitle("Booking Area");

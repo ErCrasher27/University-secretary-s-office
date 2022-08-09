@@ -24,6 +24,7 @@ public class FormLogin {
     private JPanel registerPanel;
     private JLabel universityLabel;
     private JLabel secretaryLabel;
+    private static int idStudent = 0;
 
     public FormLogin() {
         signInButton.addActionListener(new ActionListener() {
@@ -40,8 +41,9 @@ public class FormLogin {
                 s.setUsername(usernameTextField.getText());
                 s.setPassword(String.valueOf(passwordField.getPassword()));
                 if (s.loginStudent()){
+                    idStudent = s.getId();
                     FormPersonalArea p = new FormPersonalArea();
-                    p.init();
+                    p.init(idStudent);
                 }
             }
         });
