@@ -1,4 +1,6 @@
-package main;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+package Forms;//Changes of 01/08/2022: Translation of Italian prints into English, changing the positions of objects in jpanel, adding colors and borders
+
+import UniversitySecretaryTools.Student;
 
 import javax.swing.*;
 import javax.swing.text.AttributeSet;
@@ -311,8 +313,7 @@ public class FrameLogin {
         s.setPassword(field_password_login.getText());
 
         //login student
-        UniversitySecretary us = new UniversitySecretary();
-        if (us.loginStudent(s)) {
+        if (s.loginStudent()) {
             id_student = s.getId();
             FrameBooking f = new FrameBooking(id_student);
         } else {
@@ -349,8 +350,7 @@ public class FrameLogin {
 
         //register student
         if (!empty) {
-            UniversitySecretary us = new UniversitySecretary();
-            us.registerStudent(s);
+            s.registerStudent();
         } else
             JOptionPane.showMessageDialog(null, "Some fields are empty");
     }

@@ -1,4 +1,4 @@
-package main;
+package UniversitySecretaryTools;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -11,6 +11,9 @@ import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Map;
 
+<<<<<<< HEAD:src/UniversitySecretaryTools/Booking.java
+public class Booking {
+=======
 public class UniversitySecretary {
 
     //function that register student in json file
@@ -122,6 +125,7 @@ public class UniversitySecretary {
     }
 
     //fun that check if booking exist
+>>>>>>> NicolaFrontEndReview2:src/main/UniversitySecretary.java
     public boolean checkBookingExist(String date) {
 
         //define obj, json array and json parser
@@ -156,7 +160,6 @@ public class UniversitySecretary {
         return matched;
     }
 
-    //function that save the booking
     public void saveBooking(String date, String note, int id_studente) {
 
         //define json obj, array, parser
@@ -193,7 +196,7 @@ public class UniversitySecretary {
         //send email
         String email = get_email_by_id(id_studente);
         try {
-            sendemail.Send(email, date, note);
+            Email.Send(email, date, note);
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
@@ -261,5 +264,4 @@ public class UniversitySecretary {
         }
         return null;
     }
-
 }

@@ -69,7 +69,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="jackson-core-2.13.3" level="project" />
-    <orderEntry type="library" name="jackson-jaxrs-json-provider-2.13.3" level="project" />
   </component>
 </module>
