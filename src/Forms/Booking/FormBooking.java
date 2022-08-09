@@ -33,7 +33,7 @@ public class FormBooking {
     }
 
     public  void init() {
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("University Secretary - Make a reservation");
         frame.setContentPane(new FormBooking().mainPanel);
         frame.setTitle("Booking Area");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

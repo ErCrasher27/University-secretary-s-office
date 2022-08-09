@@ -9,15 +9,6 @@
     "Password": "PzfXo6zY3NRbX6YdZTcsnQ=="
   },
   {
-    "Email": "vincenzoangelino46@gmail.com",
-    "CF": "NGLVCN03H03F839P",
-    "Username": "SchifName",
-    "Id": 2,
-    "Nome": "Vincenzo",
-    "Cognome": "Angelino",
-    "Password": "\/UZzqD5x+yoms018vm3sGQ=="
-  },
-  {
     "Email": "n.piccirillo@netcomgroup.eu",
     "CF": "PCCNCL04B02B963G",
     "Username": "Apocalixs_Nick",
@@ -52,5 +43,14 @@
     "Nome": "Francesco",
     "Cognome": "Grauso",
     "Password": "\/ShdkhCmx38edGIFxXOQWQ=="
+  },
+  {
+    "Email": "vincenzoangelino46@gmail.com",
+    "CF": "NGLVCN03H03F839P",
+    "Username": "SchifName",
+    "Id": 6,
+    "Nome": "Vincenzo",
+    "Cognome": "Angelino",
+    "Password": "\/UZzqD5x+yoms018vm3sGQ=="
   }
 ]

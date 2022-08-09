@@ -1,6 +1,8 @@
 package Forms.Login;
 
+import Forms.PersonalArea.FormPersonalArea;
 import Forms.Register.*;
+import UniversitySecretaryTools.Student;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -29,6 +31,18 @@ public class FormLogin {
             public void actionPerformed(ActionEvent e) {
                 FormRegister fr = new FormRegister();
                 fr.init();
+            }
+        });
+        LOGINButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student s = new Student();
+                s.setUsername(usernameTextField.getText());
+                s.setPassword(String.valueOf(passwordField.getPassword()));
+                if (s.loginStudent()){
+                    FormPersonalArea p = new FormPersonalArea();
+                    p.init();
+                }
             }
         });
     }

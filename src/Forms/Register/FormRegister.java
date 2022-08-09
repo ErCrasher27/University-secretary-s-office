@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import  Forms.Login.*;
+import UniversitySecretaryTools.Student;
+
+import static java.lang.String.valueOf;
 
 public class FormRegister {
 
@@ -41,6 +44,38 @@ public class FormRegister {
             public void actionPerformed(ActionEvent e) {
                 FormLogin fl = new FormLogin();
                 fl.init();
+            }
+        });
+        REGISTERButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Student s = new Student();
+                boolean empty = true;
+                if (!nameField.getText().isEmpty()
+                        && !surnameField.getText().isEmpty()
+                        && !emailField.getText().isEmpty()
+                        && !taxCodeField.getText().isEmpty()
+                        && !usernameField.getText().isEmpty()
+                        && !valueOf(passwordField.getPassword()).isEmpty()) {
+                    s.setName(nameField.getText());
+                    s.setSurname(surnameField.getText());
+                    s.setEmail(emailField.getText());
+                    s.setCF(taxCodeField.getText());
+                    s.setUsername(usernameField.getText());
+                    s.setPassword(valueOf(passwordField.getPassword()));
+                    empty = false;
+
+                    //check validation email and cf (in case null empty == true)
+                    if (s.getEmail() == null) {
+                        empty = true;
+                    }else if (s.getCF() == null) {
+                        empty = true;
+                    }
+                }
+                if (!empty) {
+                    s.registerStudent();
+                } else
+                    JOptionPane.showMessageDialog(null, "Some fields are empty");
             }
         });
     }

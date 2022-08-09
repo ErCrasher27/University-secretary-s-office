@@ -1,4 +1,4 @@
-package test;
+package Test;
 
 import UniversitySecretaryTools.Student;
 import org.junit.jupiter.api.BeforeEach;

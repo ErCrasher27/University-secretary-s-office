@@ -37,7 +37,7 @@ public class FormPersonalArea {
     }
 
     public  void init() {
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame("University Secretary - Personal Area");
         frame.setContentPane(new FormPersonalArea().mainPanel);
         frame.setTitle("Personal Area");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
