@@ -12,13 +12,14 @@ public class FormBooking {
     private JPanel bookingPanel;
     private JLabel dateLabel;
     private JLabel noteLabel;
-    private JTextField dateTextField;
     private JButton bookButton;
     private JPanel datePanel;
     private JPanel notePanel;
     private JTextArea notetextArea;
     private JLabel universityLabel;
     private JLabel secretaryLabel;
+    private JFormattedTextField dataTextField;
+    private JPanel buttonPanel;
 
     public FormBooking() {
         bookButton.addActionListener(new ActionListener() {

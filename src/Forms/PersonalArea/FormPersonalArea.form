@@ -41,6 +41,8 @@
                   <background color="-14733501"/>
                   <font name="Arial Black" size="18" style="0"/>
                   <foreground color="-1680305"/>
+                  <icon value="Forms/icons/icons8-prenotazione-35.png"/>
+                  <iconTextGap value="4"/>
                   <text value="Make a reservation"/>
                 </properties>
               </component>
@@ -52,7 +54,10 @@
                   <background color="-14733501"/>
                   <font name="Arial Black" size="18" style="0"/>
                   <foreground color="-1680305"/>
-                  <text value="Manage Bookings "/>
+                  <icon value="Forms/icons/icons8-visualizza-file-35.png"/>
+                  <iconTextGap value="4"/>
+                  <label value="Your bookings "/>
+                  <text value="Your bookings "/>
                 </properties>
               </component>
             </children>
