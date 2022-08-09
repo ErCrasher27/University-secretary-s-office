@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -99,8 +100,10 @@ public class FormRegister {
         frame = new JFrame("University Secretary - Register");
         frame.setContentPane(new FormRegister().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setMinimumSize(new Dimension(800, 600));
+        frame.setMaximumSize(new Dimension(1280, 800));
+        frame.setPreferredSize(new Dimension(1280, 768));
         frame.pack();
-        frame.setSize(650, 850);
         frame.setVisible(true);
     }
 

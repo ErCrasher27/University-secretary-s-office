@@ -59,9 +59,9 @@ public class FormLogin {
         frame = new JFrame("University Secretary - Login");
         frame.setContentPane(new FormLogin().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setMinimumSize(new Dimension(500, 500));
-        frame.setMaximumSize(new Dimension(800, 800));
-        frame.setSize(600, 800);
+        frame.setMinimumSize(new Dimension(800, 600));
+        frame.setMaximumSize(new Dimension(1280, 800));
+        frame.setPreferredSize(new Dimension(1280, 768));
         frame.pack();
         frame.setVisible(true);
     }

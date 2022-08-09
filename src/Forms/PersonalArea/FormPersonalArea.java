@@ -5,6 +5,7 @@ import Forms.Booking.*;
 import Forms.Login.FormLogin;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -52,8 +53,10 @@ public class FormPersonalArea {
         frame = new JFrame("University Secretary - Personal Area");
         frame.setContentPane(new FormPersonalArea().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setMinimumSize(new Dimension(800, 600));
+        frame.setMaximumSize(new Dimension(1280, 800));
+        frame.setPreferredSize(new Dimension(1280, 768));
         frame.pack();
-        frame.setSize(600, 600);
         frame.setVisible(true);
     }
 }
