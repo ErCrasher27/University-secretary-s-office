@@ -7,6 +7,11 @@ import UniversitySecretaryTools.Booking;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FormBooking {
     private static JFrame frame;
@@ -43,6 +48,17 @@ public class FormBooking {
                 FormPersonalArea f = new FormPersonalArea();
                 f.init(idStudent);
                 frame.dispose();
+            }
+        });
+        dataTextField.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                //declare and set text field date properties
+                DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                //dataTextField = new JFormattedTextField(format);
+                dataTextField.setFormatterFactory(tf);
+                dataTextField.setValue(new Date());
             }
         });
     }
