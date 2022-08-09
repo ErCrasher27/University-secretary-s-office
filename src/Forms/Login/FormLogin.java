@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormLogin {
+    private static JFrame frame;
     private JPanel mainPanel;
     private JTextField usernameTextField;
     private JPanel formPanel;
@@ -32,6 +33,7 @@ public class FormLogin {
             public void actionPerformed(ActionEvent e) {
                 FormRegister fr = new FormRegister();
                 fr.init();
+                frame.dispose();
             }
         });
         LOGINButton.addActionListener(new ActionListener() {
@@ -44,13 +46,16 @@ public class FormLogin {
                     idStudent = s.getId();
                     FormPersonalArea p = new FormPersonalArea();
                     p.init(idStudent);
+                    frame.dispose();
+                }else {
+                    JOptionPane.showMessageDialog(null, "Login failed");
                 }
             }
         });
     }
 
     public void init() {
-        JFrame frame = new JFrame("University Secretary - Login");
+        frame = new JFrame("University Secretary - Login");
         frame.setContentPane(new FormLogin().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

@@ -2,12 +2,14 @@
 package Forms.PersonalArea;
 
 import Forms.Booking.*;
+import Forms.Login.FormLogin;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class FormPersonalArea {
+    private static JFrame frame;
     private JPanel mainPanel;
     private JPanel personalPanel;
     private JPanel buttonPanel;
@@ -24,6 +26,7 @@ public class FormPersonalArea {
             public void actionPerformed(ActionEvent e) {
                 FormBooking fl = new FormBooking();
                 fl.init(idStudent);
+                frame.dispose();
             }
         });
 
@@ -34,13 +37,20 @@ public class FormPersonalArea {
             }
         });
 
+        doneButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FormLogin fl = new FormLogin();
+                fl.init();
+                frame.dispose();
+            }
+        });
     }
 
     public  void init(int idStudent) {
         this.idStudent = idStudent;
-        JFrame frame = new JFrame("University Secretary - Personal Area");
+        frame = new JFrame("University Secretary - Personal Area");
         frame.setContentPane(new FormPersonalArea().mainPanel);
-        frame.setTitle("Personal Area");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(600, 600);

@@ -9,7 +9,7 @@ import UniversitySecretaryTools.Student;
 import static java.lang.String.valueOf;
 
 public class FormRegister {
-
+    private static JFrame frame;
     private JPanel mainPanel;
     private JPanel formPanel;
     private JPanel namePanel;
@@ -44,6 +44,7 @@ public class FormRegister {
             public void actionPerformed(ActionEvent e) {
                 FormLogin fl = new FormLogin();
                 fl.init();
+                frame.dispose();
             }
         });
         REGISTERButton.addActionListener(new ActionListener() {
@@ -81,7 +82,7 @@ public class FormRegister {
     }
 
     public void init() {
-        JFrame frame = new JFrame("University Secretary - Register");
+        frame = new JFrame("University Secretary - Register");
         frame.setContentPane(new FormRegister().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
