@@ -1,8 +1,15 @@
 package Forms.Register;
 
 import javax.swing.*;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+
+import Forms.FrameLogin;
 import  Forms.Login.*;
 import UniversitySecretaryTools.Student;
 
@@ -79,6 +86,13 @@ public class FormRegister {
                     JOptionPane.showMessageDialog(null, "Some fields are empty");
             }
         });
+        taxCodeField.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                taxCodeField.setDocument(new FormRegister.CustomizerJtextField(16));
+            }
+        });
     }
 
     public void init() {
@@ -88,5 +102,35 @@ public class FormRegister {
         frame.pack();
         frame.setSize(650, 850);
         frame.setVisible(true);
+    }
+
+    /*Character limitation class for jtextfields*/
+    public static class CustomizerJtextField extends PlainDocument {
+
+        private StringBuffer cache = new StringBuffer();
+        int lunghezzaMax;
+
+        public CustomizerJtextField(int lunghezzaMax){
+            this.lunghezzaMax = lunghezzaMax;
+        }
+
+        public void insertString(int off, String s, AttributeSet aset) throws BadLocationException {
+            int len = getLength();
+            if(len >= this.lunghezzaMax) {
+                return;
+            }
+            cache.setLength(0);
+            char c;
+            for(int i = 0; i < s.length(); i++) {
+                c = s.charAt(i);
+                cache.append(c);
+                if(cache.length() >= lunghezzaMax - len) {
+                    break;
+                }
+            }
+            if(cache.length() > 0) {
+                super.insertString( off, cache.toString(), aset);
+            }
+        }
     }
 }
