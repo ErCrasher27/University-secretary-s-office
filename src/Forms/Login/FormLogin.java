@@ -5,6 +5,7 @@ import Forms.Register.*;
 import UniversitySecretaryTools.Student;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -58,8 +59,10 @@ public class FormLogin {
         frame = new JFrame("University Secretary - Login");
         frame.setContentPane(new FormLogin().mainPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setMinimumSize(new Dimension(500, 500));
+        frame.setMaximumSize(new Dimension(800, 800));
+        frame.setSize(600, 800);
         frame.pack();
-        frame.setSize(650, 850);
         frame.setVisible(true);
     }
 }
