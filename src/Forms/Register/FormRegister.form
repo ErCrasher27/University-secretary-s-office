@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Forms.Register.FormRegister">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="40" left="50" bottom="40" right="50"/>
+    <constraints>
+      <xy x="20" y="20" width="510" height="831"/>
+    </constraints>
+    <properties>
+      <background color="-13473911"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="14dcc" binding="formPanel" layout-manager="GridLayoutManager" row-count="8" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-1446158"/>
+        </properties>
+        <border type="etched" title="Register" title-justification="1">
+          <font name="Arial Black" size="24" style="1"/>
+          <title-color color="-8870200"/>
+        </border>
+        <children>
+          <grid id="1a6df" binding="namePanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="100" bottom="10" right="100"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1446158"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="d66b4" class="javax.swing.JLabel" binding="nameLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Arial" size="16" style="1"/>
+                  <foreground color="-1680305"/>
+                  <text value="Name"/>
+                </properties>
+              </component>
+              <component id="9d1ad" class="javax.swing.JTextField" binding="nameField">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-13473911"/>
+                  <caretColor color="-1446158"/>
+                  <disabledTextColor color="-1446158"/>
+                  <font name="Arial" size="20" style="0"/>
+                  <foreground color="-1446158"/>
+                  <selectedTextColor color="-1446158"/>
+                  <selectionColor color="-1680305"/>
+                </properties>
+              </component>
+              <vspacer id="1db74">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+            </children>
+          </grid>
+          <grid id="acd30" binding="surnamePanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="100" bottom="10" right="100"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1446158"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="a8237" class="javax.swing.JLabel" binding="surnameLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Arial" size="16" style="1"/>
+                  <foreground color="-1680305"/>
+                  <text value="Surname"/>
+                </properties>
+              </component>
+              <component id="9e72c" class="javax.swing.JTextField" binding="surnameField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-13473911"/>
+                  <caretColor color="-1446158"/>
+                  <disabledTextColor color="-1446158"/>
+                  <font name="Arial" size="20" style="0"/>
+                  <foreground color="-1446158"/>
+                  <selectedTextColor color="-1446158"/>
+                  <selectionColor color="-1680305"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="16158" binding="taxCodePanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="100" bottom="10" right="100"/>
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1446158"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="f6bc3" class="javax.swing.JLabel" binding="taxCodeLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Arial" size="16" style="1"/>
+                  <foreground color="-1680305"/>
+                  <text value="TaxCode"/>
+                </properties>
+              </component>
+              <component id="4368f" class="javax.swing.JTextField" binding="taxCodeField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-13473911"/>
+                  <caretColor color="-1446158"/>
+                  <disabledTextColor color="-1446158"/>
+                  <font name="Arial" size="20" style="0"/>
+                  <foreground color="-1446158"/>
+                  <selectedTextColor color="-1446158"/>
+                  <selectionColor color="-1680305"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="e83c9" binding="emailPanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="100" bottom="10" right="100"/>
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1446158"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="f0eb2" class="javax.swing.JLabel" binding="emailLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Arial" size="16" style="1"/>
+                  <foreground color="-1680305"/>
+                  <text value="Email"/>
+                </properties>
+              </component>
+              <component id="1b6b4" class="javax.swing.JTextField" binding="emailField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-13473911"/>
+                  <caretColor color="-1446158"/>
+                  <disabledTextColor color="-1446158"/>
+                  <font name="Arial" size="20" style="0"/>
+                  <foreground color="-1446158"/>
+                  <selectedTextColor color="-1446158"/>
+                  <selectionColor color="-1680305"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="17cbd" binding="usernamePanel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="100" bottom="10" right="100"/>
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1446158"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="88aad" class="javax.swing.JLabel" binding="usernameLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Arial" size="16" style="1"/>
+                  <foreground color="-1680305"/>
+                  <text value="Username"/>
+                </properties>
+              </component>
+              <component id="e1062" class="javax.swing.JTextField" binding="usernameField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-13473911"/>
+                  <caretColor color="-1446158"/>
+                  <disabledTextColor color="-1446158"/>
+                  <font name="Arial" size="20" style="0"/>
+                  <foreground color="-1446158"/>
+                  <selectedTextColor color="-1446158"/>
+                  <selectionColor color="-1680305"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="4c6ee" binding="passwordPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="10" left="100" bottom="10" right="100"/>
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1446158"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="6d028" class="javax.swing.JLabel" binding="passwordLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Arial" size="16" style="1"/>
+                  <foreground color="-1680305"/>
+                  <text value="Password"/>
+                </properties>
+              </component>
+              <component id="2deab" class="javax.swing.JPasswordField" binding="passwordField">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-13473911"/>
+                  <caretColor color="-1446158"/>
+                  <disabledTextColor color="-1446158"/>
+                  <font name="Arial" size="20" style="0"/>
+                  <foreground color="-1446158"/>
+                  <selectedTextColor color="-1446158"/>
+                  <selectionColor color="-1680305"/>
+                </properties>
+              </component>
+              <vspacer id="356">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+            </children>
+          </grid>
+          <grid id="68e20" binding="buttonPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="100" bottom="0" right="100"/>
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1446158"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="beba7" class="javax.swing.JButton" binding="REGISTERButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1680305"/>
+                  <font name="Arial Black" size="18" style="1"/>
+                  <foreground color="-1446158"/>
+                  <text value="REGISTER"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="5b612" binding="loginPanel" layout-manager="GridLayoutManager" row-count="1" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-1446158"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="3e07" class="javax.swing.JLabel" binding="areYouAlreadyRegisteredLabel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Arial" size="12" style="0"/>
+                  <foreground color="-13473911"/>
+                  <text value="Are you already registered?"/>
+                </properties>
+              </component>
+              <component id="240f5" class="javax.swing.JButton" binding="loginButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-1446158"/>
+                  <font name="Arial Black" size="14" style="0"/>
+                  <foreground color="-13473911"/>
+                  <text value="login"/>
+                </properties>
+              </component>
+              <hspacer id="a6d92">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="30f77">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <component id="1c7c9" class="javax.swing.JLabel" binding="universityLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Arial Black" size="36" style="1"/>
+          <foreground color="-1446158"/>
+          <text value="University"/>
+        </properties>
+      </component>
+      <component id="42662" class="javax.swing.JLabel" binding="secretaryLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Arial Black" size="36" style="1"/>
+          <foreground color="-1680305"/>
+          <text value="Secretary"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
