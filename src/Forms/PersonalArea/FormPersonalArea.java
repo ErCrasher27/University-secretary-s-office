@@ -15,7 +15,7 @@ public class FormPersonalArea {
     private JButton manageBookingsButton;
     private JLabel universityLabel;
     private JLabel secretaryLabel;
-    private JButton button1;
+    private JButton doneButton;
 
     public FormPersonalArea() {
         makeAReservationButton.addActionListener(new ActionListener() {
