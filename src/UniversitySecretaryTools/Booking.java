@@ -11,6 +11,7 @@ import java.io.FileWriter;
 
 public class Booking {
     public boolean checkBookingExist(String date) {
+        boolean matched = false;
 
         //define obj, json array and json parser
         Object obj = null;
@@ -31,7 +32,6 @@ public class Booking {
         //declare json obj to put inside username and pw (prepare obj want login)
         JSONObject jobj = new JSONObject();
         jobj.put("Data", date);
-        boolean matched = false;
 
         //loop to check validation
         for (int i = 0; i < jrr.size(); i++) {
@@ -44,7 +44,7 @@ public class Booking {
         return matched;
     }
 
-    public void saveBooking(String date, String note, int id_studente) {
+    public void saveBooking(String date, String note, int id_student) {
 
         //define json obj, array, parser
         JSONObject jobj = new JSONObject();
@@ -62,7 +62,7 @@ public class Booking {
         //adding student's stats to json object
         jobj.put("Data", date);
         jobj.put("Note", note);
-        jobj.put("Id_student", id_studente);
+        jobj.put("Id_student", id_student);
 
         //add jobj in jrr, now jrr has  all students + the last registration
         jrr.add(jobj);
@@ -78,7 +78,7 @@ public class Booking {
         JOptionPane.showMessageDialog(null, "Booking successfully made!");
 
         //send email
-        String email = get_email_by_id(id_studente);
+        String email = get_email_by_id(id_student);
         try {
             Email.Send(email, date, note);
         } catch (MessagingException e) {

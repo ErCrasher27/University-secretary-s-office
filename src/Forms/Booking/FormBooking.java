@@ -28,9 +28,10 @@ public class FormBooking {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Booking b = new Booking();
-                if(b.checkBookingExist(dataTextField.getText())){
-
+                if(!b.checkBookingExist(dataTextField.getText())){
                     b.saveBooking(dataTextField.getText(), notetextArea.getText(), idStudent);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Booking already exist");
                 }
             }
         });
