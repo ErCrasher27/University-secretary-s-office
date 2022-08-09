@@ -153,7 +153,7 @@ public class TaxCode {
             nome_scomposto[i] = name.charAt(i);
         }
 
-        // count consonants to check whether or not to skip the second consonant
+        // count consonants to check whether to skip the second consonant
         // (only if less than 4 consonants)
         int count_consonanti = 0;
         for (int i = 0; i < name.length(); i++) {
