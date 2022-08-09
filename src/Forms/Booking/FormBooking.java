@@ -10,17 +10,15 @@ import java.awt.event.ActionListener;
 public class FormBooking {
     private JPanel mainPanel;
     private JPanel bookingPanel;
-    private JLabel bookingAreaLabel;
-    private JButton logoutButton;
     private JLabel dateLabel;
     private JLabel noteLabel;
-    private JTextField noteTextField;
     private JTextField dateTextField;
     private JButton bookButton;
     private JPanel datePanel;
     private JPanel notePanel;
-    private JFormattedTextField formattedTextField1;
-    private JComboBox comboBox1;
+    private JTextArea notetextArea;
+    private JLabel universityLabel;
+    private JLabel secretaryLabel;
 
     public FormBooking() {
         bookButton.addActionListener(new ActionListener() {

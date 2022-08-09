@@ -1,4 +1,5 @@
 package main;
+import Forms.Booking.*;
 import Forms.PersonalArea.*;
 //move it
 public class Main {
@@ -6,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         //start frame login
-        FormPersonalArea frame = new FormPersonalArea();
+        FormBooking frame = new FormBooking();
         frame.init();
     }
 }
