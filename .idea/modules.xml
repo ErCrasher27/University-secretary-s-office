@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Segreteria Universitaria.iml" filepath="$PROJECT_DIR$/Segreteria Universitaria.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/University-secretary-s-office.iml" filepath="$PROJECT_DIR$/.idea/modules/University-secretary-s-office.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/University-secretary-s-office.main.iml" filepath="$PROJECT_DIR$/.idea/modules/University-secretary-s-office.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/University-secretary-s-office.test.iml" filepath="$PROJECT_DIR$/.idea/modules/University-secretary-s-office.test.iml" />
     </modules>
   </component>
 </project>
